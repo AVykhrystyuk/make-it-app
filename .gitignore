@@ -1,8 +1,8 @@
 # Dependency directories
 node_modules
 
-# Build directories
-build
-public/assets
+# Build results
+[Bb]uild/
+/public/assets
 
-.other
+/.other
