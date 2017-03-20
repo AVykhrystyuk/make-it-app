@@ -1,0 +1,3 @@
+-add nice bootstrap theme
+-ngAnotationLoader
+-use hash in name in production (how to inject into index.html?)

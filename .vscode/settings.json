@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
+    "search.exclude": {
+        "**/node_modules": false,
+        "**/bower_components": true
+    },
+    // Maximum amount of characters per line (0 = disable).
+    "html.format.wrapLineLength": 0,
+    "eslint.enable": true,
+    "jshint.options": {
+        "esversion": 6,
+        "node": true
+    }
+}
