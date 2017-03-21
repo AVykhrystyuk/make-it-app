@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npm run dev-server",
     "dev-server": "webpack-dev-server --progress --inline --config ./config/webpack.config.js",
-    "dev-server-prod": "set NODE_ENV=production && webpack-dev-server --progress --inline --config ./config/webpack.config.js",
+    "dev-server-prod": "webpack-dev-server --env.production --progress --inline --config ./config/webpack.config.js",
     "build": "rimraf build && webpack --progress --display-modules --config ./config/webpack.config.js",
-    "build-prod": "rimraf build && set NODE_ENV=production && webpack --display-modules --config ./config/webpack.config.js",
+    "build-prod": "rimraf build && webpack --env.production --display-modules --config ./config/webpack.config.js",
     "serve": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

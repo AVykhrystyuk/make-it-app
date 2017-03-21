@@ -4,18 +4,24 @@ const path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const NODE_ENV = process.env.NODE_ENV || "development";
-console.log(`NODE_ENV = ${NODE_ENV}`);
+module.exports = function(env) {
+    var isProduction = env
+        ? Boolean(env.production)
+        : false;
+    console.log(`isPoduction = ${isProduction}`);
 
-const options = {
-    isProd: NODE_ENV != "development",
-    isTest: false,
-    plugins: {
-        extractCSS: new ExtractTextPlugin({
-            filename: 'css/[name].css',
-            allChunks: true
-        })
-    }
+    const options = {
+        isProd: isProduction,
+        isTest: false,
+        plugins: {
+            extractCSS: new ExtractTextPlugin({
+                filename: 'css/[name].css',
+                allChunks: true
+            })
+        }
+    };
+
+    return makeWebpackConfig(options);
 };
 
 function makeWebpackConfig(options) {
@@ -174,5 +180,3 @@ function getDevtool(options) {
     console.log(`devtool = ${devtool}`);
     return devtool;
 }
-
-module.exports = makeWebpackConfig(options);
