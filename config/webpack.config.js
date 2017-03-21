@@ -117,7 +117,7 @@ function getAllModuleRules(options) {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-            presets: ["es2015"]
+            presets: ["es2015-native-modules"]
         }
     }, {
         test: /\.(jpg|jpeg|gif|png)$/,
