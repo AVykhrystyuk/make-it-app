@@ -3,6 +3,5 @@ node_modules
 
 # Build results
 [Bb]uild/
-/public/assets
 
 /.other

@@ -2,6 +2,8 @@
 
 const path = require('path'),
     webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = function(env) {
@@ -15,7 +17,7 @@ module.exports = function(env) {
         isTest: false,
         plugins: {
             extractCSS: new ExtractTextPlugin({
-                filename: 'css/[name].css',
+                filename: 'assets/css/[name].css',
                 allChunks: true
             })
         }
@@ -26,19 +28,19 @@ module.exports = function(env) {
 
 function makeWebpackConfig(options) {
     const config = {
-        context: path.resolve('app')
+        context: path.resolve('src')
     };
 
     config.entry = {
-        app: './app.module.js',
-        vendor: './vendor.js',
-        prepack: './prepack'
+        app: './app/app.module.js',
+        vendor: './app/vendor.js',
+        assets: './assets'
     };
 
     config.output = {
         path: path.resolve('build'),
-        publicPath: '/assets',
-        filename: 'js/[name].bundle.js',
+        publicPath: '/',
+        filename: 'assets/js/[name].bundle.js',
     };
 
     config.module = {
@@ -50,14 +52,15 @@ function makeWebpackConfig(options) {
     config.devtool = getDevtool(options);
 
     config.devServer = {
-        contentBase: path.resolve('public')
+        //contentBase: path.resolve('build'),
+        stats: 'minimal'
     };
 
     return config;
 }
 
 function getStyleModuleRules(options) {
-    let extractedStyleRegex = /node_modules|app[\\/]prepack/;
+    let extractedStyleRegex = /node_modules|src[\\/]assets/;
     let styleLoader = {
         loader: "style-loader"
     };
@@ -124,14 +127,14 @@ function getAllModuleRules(options) {
         loader: 'url-loader',
         options: {
             limit: 1024,
-            name: "img/[name].[hash].[ext]"
+            name: "assets/img/[name].[hash].[ext]"
         }
     }, {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader',
         options: {
             limit: 1024,
-            name: "fonts/[name].[hash].[ext]"
+            name: "assets/fonts/[name].[hash].[ext]"
         }
     }];
 
@@ -148,7 +151,10 @@ function getPlugins(options) {
         new webpack.optimize.CommonsChunkPlugin({
             names: ["prepack", "vendor"],
             minChunks: Infinity
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: './public'
+        }])
     ];
 
     if (options.isProd) {
@@ -163,6 +169,26 @@ function getPlugins(options) {
     }
 
     if (!options.isTest) {
+        plugins.push(
+            new HtmlWebpackPlugin({
+                template: './templates/index.html',
+                filename: 'index.html',
+                title: 'MakeIt',
+                inject: 'body',
+                chunksSortMode: 'dependency'
+            }),
+            new HtmlWebpackPlugin({
+                template: './templates/theme.html',
+                filename: 'theme.html',
+                title: 'MakeIt - theme',
+                inject: 'body',
+                // minify: {
+                //     removeAttributeQuotes: true
+                // },
+                chunksSortMode: 'dependency'
+            })
+        );
+
         if (options.plugins.extractCSS) {
             plugins.push(options.plugins.extractCSS);
         }
