@@ -33,14 +33,14 @@ function makeWebpackConfig(options) {
 
     config.entry = {
         app: './app/app.module.js',
-        vendor: './app/vendor.js',
+        vendor: './vendor',
         assets: './assets'
     };
 
     config.output = {
         path: path.resolve('build'),
         publicPath: '/',
-        filename: 'assets/js/[name].bundle.js',
+        filename: 'assets/js/' + (options.isProd ? '[name].[hash].js' : '[name].bundle.js'),
     };
 
     config.module = {
@@ -60,7 +60,7 @@ function makeWebpackConfig(options) {
 }
 
 function getStyleModuleRules(options) {
-    let extractedStyleRegex = /node_modules|src[\\/]assets/;
+    let extractedStyleRegex = /node_modules|src[\\/]assets|src[\\/]vendor/;
     let styleLoader = {
         loader: "style-loader"
     };
