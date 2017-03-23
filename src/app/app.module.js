@@ -3,8 +3,6 @@
 import angular from 'angular';
 import registerRoutes from './app.routes';
 
-debugger;
-
 let logMess = () => console.log('moadule is loaded');  
 logMess();
 

@@ -30,39 +30,70 @@
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-                <a class="navbar-brand" href="#">MakeIt</a>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> MakeIt</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+
+
+                <div class="navbar-left navbar-action">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav pull-right hidden">
+                        <li><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                    </ul>
+
+                    <form role="search">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Search" autocomplete="off" autocorrect="off" spellcheck="false">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Search">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="navbar-form navbar-left hidden">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Quick Add Task" autocomplete="off" autocorrect="off" spellcheck="false">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default" aria-label="Quick Add Task">Today</button>
+                                <button type="button" class="btn btn-default" aria-label="Quick Add Task">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>AV</strong></a></li>
+                    <li><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container theme-showcase" role="main">
-
+    <div class="container" role="main">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="Quick Add Task">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default" aria-label="Quick Add Task">Today</button>
+                <button type="button" class="btn btn-default" aria-label="Quick Add Task">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+            </div>
+        </div>
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <h1>Theme example</h1>
@@ -70,11 +101,11 @@
         </div>
 
     </div>
-   
+
     <!--TODO: remove this block. Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
     <!-- down here scripts will be injected via HtmlWebpackPlugin -->
 
 </body>

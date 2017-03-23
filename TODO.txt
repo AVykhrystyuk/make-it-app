@@ -1,1 +1,2 @@
 -ngAnotationLoader
+-figure out how to bandle https://fonts.googleapis.com/css?family=Open+Sans:400,700
