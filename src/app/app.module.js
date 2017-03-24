@@ -1,10 +1,16 @@
 'use strict';
 
 import angular from 'angular';
-import registerRoutes from './app.routes';
+import routes from './app.routes.js';
+import appComponent from './app.component.js';
 
-let logMess = () => console.log('moadule is loaded');  
-logMess();
+import components from './components';
+
+let registrations = [
+    routes,
+    appComponent,
+    components
+];
 
 const app = angular.module('makeItApp', []);
-registerRoutes(app);
+registrations.forEach(r => r(app));

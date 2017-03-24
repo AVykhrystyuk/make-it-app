@@ -136,6 +136,10 @@ function getAllModuleRules(options) {
             limit: 1024,
             name: "assets/fonts/[name].[hash].[ext]"
         }
+    }, {
+        test: /\.html$/,
+        exclude: /src[\\/]templates/,
+        loader: 'raw-loader'
     }];
 
     if (!options.isTest) {
