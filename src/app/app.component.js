@@ -1,5 +1,6 @@
 'use strict';
 
+import './app.component.less';
 import template from './app.component.html';
 
 export default function register(app) {

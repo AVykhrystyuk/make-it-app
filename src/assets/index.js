@@ -1,6 +1,7 @@
 'use strict';
 
+//css
 import './css/ie10-viewport-bug-workaround.css';
-import './css/main.less';
 
+//js
 import './js/ie10-viewport-bug-workaround.js';
