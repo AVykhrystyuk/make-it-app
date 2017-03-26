@@ -6,7 +6,7 @@
         "**/bower_components": true
     },
     // Maximum amount of characters per line (0 = disable).
-    "html.format.wrapLineLength": 0,
+    //"html.format.wrapLineLength": 0,
     "eslint.enable": true,
 
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,

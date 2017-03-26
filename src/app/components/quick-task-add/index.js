@@ -1,5 +1,3 @@
 'use strict';
 
-import component from './quick-task-add.js';
-
-export default component;
+export * from './quick-task-add.component.js';

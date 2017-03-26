@@ -1,5 +1,3 @@
 'use strict';
 
-import component from './search-inline.js';
-
-export default component;
+export * from './search-inline.component.js';

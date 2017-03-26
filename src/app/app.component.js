@@ -3,11 +3,10 @@
 import './app.component.less';
 import template from './app.component.html';
 
-export default function register(app) {
-    app.component('app', {
-        template: template,
-        controller: Controller,
-    })
+export const AppComponent = {
+    __selector__: 'app',
+    template,   
+    controller: Controller
 };
 
 function Controller() {

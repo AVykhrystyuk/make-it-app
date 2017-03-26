@@ -67,7 +67,7 @@ function getStyleModuleRules(options) {
     let cssLoader = {
         loader: "css-loader",
         options: {
-            sourceMap: options.isProd,
+            sourceMap: !options.isTest,
             minimize: options.isProd
         }
     };
@@ -80,7 +80,7 @@ function getStyleModuleRules(options) {
     let lessLoader = {
         loader: "less-loader",
         options: {
-            sourceMap: options.isProd
+            sourceMap: !options.isTest
         }
     };
 
@@ -201,7 +201,7 @@ function getPlugins(options) {
 }
 
 function getDevtool(options) {
-    let devtool = 'cheap-source-map';
+    let devtool = 'eval-source-map';
 
     if (options.isProd) {
         devtool = 'source-map';
