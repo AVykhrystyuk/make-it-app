@@ -7,6 +7,9 @@ class Сontroller {
         'ngInject';
     }
     $onInit() {}
+    onSubmit() {
+        console.log('quick-task-add: onSubmit');
+    }
 }
 
 export const QuickTaskAddComponent = {
