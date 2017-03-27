@@ -14,8 +14,8 @@
         <div id="navbar" class="collapse navbar-collapse">
             <div class="navbar-left navbar-action">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{'active': !$ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(false)"><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
-                    <li ng-class="{'active': $ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(true)"><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                    <li ng-class="{'active': !$ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(false)"><a href="#" mi-glyphicon icon-id="plus"></a></li>
+                    <li ng-class="{'active': $ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(true)"><a href="#" mi-glyphicon icon-id="search"></a></li>
                 </ul>
 
                 <search-inline ng-show="$ctrl.searchMode"></search-inline>
@@ -23,8 +23,9 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
+                
                 <li><a href="#"><strong>AV</strong></a></li>
-                <li><a href="#" class="glyphiconized"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+                <li><a href="#" mi-glyphicon icon-id="cog"></a></li>
             </ul>
         </div>
     </div>

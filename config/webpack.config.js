@@ -201,7 +201,7 @@ function getPlugins(options) {
 }
 
 function getDevtool(options) {
-    let devtool = 'eval-source-map';
+    let devtool = 'source-map';//'eval-source-map';
 
     if (options.isProd) {
         devtool = 'source-map';
