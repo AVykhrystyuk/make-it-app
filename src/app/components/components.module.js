@@ -1,6 +1,8 @@
 'use strict';
 
 import angular from 'angular';
+import Registrater from 'registrater';
+
 import {
     SearchInlineComponent
 } from './search-inline';
@@ -8,9 +10,7 @@ import {
     QuickTaskAddComponent
 } from './quick-task-add';
 
-let components = [QuickTaskAddComponent, SearchInlineComponent];
-
-let ngModule = angular.module('makeItApp.components', []);
-components.forEach(c => ngModule.component(c.__selector__, c));
+const ngModule = angular.module('makeItApp.components', []);
+new Registrater(ngModule).registerComponents([QuickTaskAddComponent, SearchInlineComponent]);
 
 export default ngModule.name;

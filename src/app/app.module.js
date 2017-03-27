@@ -2,20 +2,16 @@
 
 import angular from 'angular';
 
-import routes from './app.routes.js';
+import Registrater from 'registrater';
 import {
     AppComponent
 } from './app.component.js';
-import CommonModule from './common';
-import ComponentsModule from './components';
-
-let components = [AppComponent];
-let registrations = [routes];
+import CommonModule from './common/common.module.js';
+import ComponentsModule from './components/components.module.js';
 
 const ngModule = angular.module('makeItApp', [
     CommonModule,
     ComponentsModule
-])
+]);
 
-components.forEach(c => ngModule.component(c.__selector__, c));
-registrations.forEach(r => r(ngModule));
+new Registrater(ngModule).registerComponents([AppComponent]);

@@ -2,25 +2,32 @@
 
 import angular from 'angular';
 
-export function GlyphiconDirective($timeout) {
-    'ngInject';
-    return {
-        restrict: 'A',
-        link($scope, $element, $attrs) {
-            if (!$attrs.iconId) {
-                return;
-            }
-
-            $element.addClass('glyphiconized');
-
-            let spanElement = angular.element('<span>')
-                .addClass('glyphicon')
-                .addClass(`glyphicon-${$attrs.iconId}`)
-                .attr('aria-hidden', true);
-
-            $element.append(spanElement);
-        }
+export class GlyphiconDirective {
+    constructor() {
+        'ngInject';
+        this.restrict = 'A';
     }
+
+    link($scope, $element, $attrs) {
+        let iconId = $attrs.miGlyphicon;
+        if (!iconId) {
+            return;
+        }
+
+        $element.addClass('glyphiconized');
+
+        let spanElement = angular.element('<span>')
+            .addClass('glyphicon')
+            .addClass(`glyphicon-${iconId}`)
+            .attr('aria-hidden', true);
+
+        $element.append(spanElement);
+    }
+}
+
+export function GlyphiconDirectiveFactory() {
+    'ngInject';
+    return new GlyphiconDirective();
 };
 
-GlyphiconDirective.__selector__ = 'miGlyphicon';
+GlyphiconDirectiveFactory.__selector__ = 'miGlyphicon';

@@ -56,6 +56,12 @@ function makeWebpackConfig(options) {
         stats: 'minimal'
     };
 
+    config.resolve = {
+         alias: {
+             registrater$: path.resolve('src/app/registrater.js')
+         }
+    };
+
     return config;
 }
 
@@ -201,7 +207,7 @@ function getPlugins(options) {
 }
 
 function getDevtool(options) {
-    let devtool = 'source-map';//'eval-source-map';
+    let devtool = 'source-map'; //'eval-source-map';
 
     if (options.isProd) {
         devtool = 'source-map';
