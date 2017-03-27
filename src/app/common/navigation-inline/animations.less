@@ -1,0 +1,25 @@
+.navbar-action {
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+}
+
+nav.navbar .navbar-action {
+    @transition: all .4s ease-in-out;
+    .animated{
+        position: absolute;
+        top: 100px;
+        transition: @transition;
+        opacity: 0;
+        &.active-component {
+            top: 0;
+            opacity: 1;
+        }
+    }
+    search-inline {
+        .animated
+    }
+    quick-task-add {
+        .animated
+    }
+}

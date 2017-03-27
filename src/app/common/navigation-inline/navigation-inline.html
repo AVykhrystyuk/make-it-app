@@ -14,18 +14,23 @@
         <div id="navbar" class="collapse navbar-collapse">
             <div class="navbar-left navbar-action">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{'active': !$ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(false)"><a href="#" mi-glyphicon="plus"></a></li>
-                    <li ng-class="{'active': $ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(true)"><a href="#" mi-glyphicon="search"></a></li>
+                    <li ng-class="{'active': !$ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(false)">
+                        <a href="#" mi-glyphicon="plus"></a>
+                    </li>
+                    <li ng-class="{'active': $ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(true)">
+                        <a href="#" mi-glyphicon="search"></a>
+                    </li>
                 </ul>
 
-                <search-inline ng-show="$ctrl.searchMode"></search-inline>
-                <quick-task-add ng-hide="$ctrl.searchMode"></quick-task-add>
+                <search-inline ng-class="{'active-component': $ctrl.searchMode}"></search-inline>
+                <quick-task-add ng-class="{'active-component': !$ctrl.searchMode}"></quick-task-add>
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                
                 <li><a href="#"><strong>AV</strong></a></li>
-                <li><a href="#" mi-glyphicon="cog"></a></li>
+                <li>
+                    <a href="#" mi-glyphicon="cog"></a>
+                </li>
             </ul>
         </div>
     </div>

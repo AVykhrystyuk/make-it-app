@@ -1,5 +1,6 @@
 'use strict';
 
+import './animations.less';
 import template from './navigation-inline.html';
 
 class Controller {
