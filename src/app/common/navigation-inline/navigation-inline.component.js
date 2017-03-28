@@ -1,6 +1,7 @@
 'use strict';
 
-import './animations.less';
+import './styles/animations.less';
+import './styles/navigation-inline.component.less';
 import template from './navigation-inline.html';
 
 class Controller {

@@ -21,7 +21,7 @@ export class GlyphiconDirective {
             .addClass(`glyphicon-${iconId}`)
             .attr('aria-hidden', true);
 
-        $element.append(spanElement);
+        $element.prepend(spanElement); //.append(spanElement);
     }
 }
 

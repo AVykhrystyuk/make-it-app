@@ -8,7 +8,7 @@ nav.navbar .navbar-action {
     @transition: all .4s ease-in-out;
     @top-active-component: 0;
     @top-offset: 100px;
-    .animated {
+    .animated() {
         position: absolute;
         transition: @transition;
         opacity: 0;
@@ -17,14 +17,14 @@ nav.navbar .navbar-action {
         }
     }
     search-inline {
-        .animated;
+        .animated();
         top: @top-offset;
         &.active-component {
             top: @top-active-component;
         }
     }
     quick-task-add {
-        .animated;
+        .animated();
         top: @top-offset;
         &.active-component {
             top: @top-active-component;
