@@ -6,20 +6,28 @@
 
 nav.navbar .navbar-action {
     @transition: all .4s ease-in-out;
-    .animated{
+    @top-active-component: 0;
+    @top-offset: 100px;
+    .animated {
         position: absolute;
-        top: 100px;
         transition: @transition;
         opacity: 0;
         &.active-component {
-            top: 0;
             opacity: 1;
         }
     }
     search-inline {
-        .animated
+        .animated;
+        top: @top-offset;
+        &.active-component {
+            top: @top-active-component;
+        }
     }
     quick-task-add {
-        .animated
+        .animated;
+        top: @top-offset;
+        &.active-component {
+            top: @top-active-component;
+        }
     }
 }
