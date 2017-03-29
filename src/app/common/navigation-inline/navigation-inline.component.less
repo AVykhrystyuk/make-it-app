@@ -1,5 +1,4 @@
-/* update bootstrap styles */
-
+@import "~bootstrap/less/variables.less";
 .navbar-nav {
     float: left;
     margin: 0;
@@ -26,11 +25,14 @@ nav.navbar {
     @padding: 4px;
     padding-top: @padding;
     padding-bottom: @padding;
-    .navbar-header a.navbar-brand {
-        @padding: 8px;
-        font-size: 21px;
-        padding-top: @padding;
-        padding-bottom: @padding;
+    .navbar-header {
+        position: absolute;
+        a.navbar-brand {
+            @padding: 8px;
+            font-size: 21px;
+            padding-top: @padding;
+            padding-bottom: @padding;
+        }
     }
     ul.nav.navbar-nav li a.glyphiconized {
         padding: 9px 13px;
@@ -40,7 +42,15 @@ nav.navbar {
     }
     .navbar-action {
         width: 60%;
-        margin-left: 60px;
+        margin-left: 18.5%; //margin-left: 60px;
+        transition: all 0.3s ease-in; //width 1s, margin-left 1s ease-in;
+        @media (max-width: @screen-xs-max) {
+            margin-left: 12%;
+        }
+        @media (max-width: @screen-xs) {
+            width: 70%;
+            margin-left: 5%;
+        }
         .input-group.input-group-sm {
             margin-top: 5px;
         }
@@ -57,29 +67,41 @@ nav.navbar {
 }
 
 nav.navbar .navbar-action {
-    @transition: all .4s ease-in-out;
-    @top-active-component: 0;
     @top-offset: 100px;
+    @top-active-component: 0;
+    .activate() {
+        top: @top-active-component;
+        opacity: 1;
+    }
+    .deactivate-search() {
+        top: -@top-offset;
+    }
+    .deactivate-quick-task-add() {
+        top: @top-offset;
+    }
     .animated() {
         position: absolute;
-        transition: @transition;
+        transition: all .4s ease-in-out;
         opacity: 0;
-        &.active-component {
-            opacity: 1;
-        }
     }
     search-inline {
         .animated();
-        top: -@top-offset;
+        .deactivate-search();
         &.active-component {
-            top: @top-active-component;
+            .activate();
+        }
+        @media (max-width: @screen-xs-max) {
+            .activate() !important;
         }
     }
     quick-task-add {
         .animated();
-        top: @top-offset;
+        .deactivate-quick-task-add();
         &.active-component {
-            top: @top-active-component;
+            .activate();
+        }
+        @media (max-width: @screen-xs-max) {
+            .deactivate-quick-task-add() !important;
         }
     }
 }

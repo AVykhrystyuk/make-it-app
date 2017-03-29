@@ -1,5 +1,4 @@
--search for mobile alignment
-
+-input[search] clear button
 -ngAnotationLoader
 -figure out how to bandle https://fonts.googleapis.com/css?family=Open+Sans:400,700
 -use ui-router
