@@ -14,7 +14,7 @@
     margin-right: -15px;
 }
 
-.navbar-nav > li {
+.navbar-nav>li {
     float: left;
 }
 
@@ -34,8 +34,8 @@ nav.navbar {
     }
     ul.nav.navbar-nav li a.glyphiconized {
         padding: 9px 13px;
-        span.glyphicon {
-            font-size: 18px;
+        .glyphicon {
+            font-size: 18.5px;
         }
     }
     .navbar-action {
@@ -46,6 +46,7 @@ nav.navbar {
         }
     }
 }
+
 
 /* animations */
 
@@ -69,7 +70,7 @@ nav.navbar .navbar-action {
     }
     search-inline {
         .animated();
-        top: @top-offset;
+        top: -@top-offset;
         &.active-component {
             top: @top-active-component;
         }

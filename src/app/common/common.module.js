@@ -4,6 +4,9 @@ import angular from 'angular';
 import Registrater from 'registrater';
 
 import {
+    GlyphiconDirectiveFactory
+} from './mi-glyphicon';
+import {
     SearchInlineComponent
 } from './search-inline';
 import {
@@ -11,8 +14,7 @@ import {
 } from './quick-task-add';
 
 import {
-    NavigationInlineComponent,
-    GlyphiconDirectiveFactory
+    NavigationInlineComponent
 } from './navigation-inline';
 
 let ngModule = angular.module('makeItApp.common', []);

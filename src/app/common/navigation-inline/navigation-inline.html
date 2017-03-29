@@ -1,27 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <div>
-            <div class="hidden-xs">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" mi-glyphicon="list"> MakeIt</a>
-                </div>
-
-                <div class="navbar-left navbar-action">
-                    <ul class="nav navbar-nav">
-                        <li ng-class="{'active': !$ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(false)">
-                            <a href="#" mi-glyphicon="plus"></a>
-                        </li>
-                        <li ng-class="{'active': $ctrl.searchMode}" ng-click="$ctrl.setSearchVisibility(true)">
-                            <a href="#" mi-glyphicon="search"></a>
-                        </li>
-                    </ul>
-
-                    <search-inline ng-class="{'active-component': $ctrl.searchMode}"></search-inline>
-                    <quick-task-add ng-class="{'active-component': !$ctrl.searchMode}"></quick-task-add>
-                </div>
-            </div>
-
-            <div class="menu-toggler visible-xs">
+        <div class="visible-xs">
+            <div class="menu-toggler">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
                         <a href="#" mi-glyphicon="align-justify"></a>
@@ -29,12 +9,34 @@
                 </ul>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><strong>AV</strong></a></li>
-                <li>
-                    <a href="#" mi-glyphicon="cog"></a>
-                </li>
-            </ul>
+            <div class="navbar-left navbar-action">
+                <search-inline class="active-component"></search-inline>
+            </div>
         </div>
+
+        <div class="hidden-xs">
+            <div class="navbar-header ">
+                <a class="navbar-brand" href="#" mi-glyphicon="list"> MakeIt</a>
+            </div>
+
+            <div class="navbar-left navbar-action">
+                <ul class="nav navbar-nav">
+                    <li ng-click="$ctrl.setSearchVisibility(!$ctrl.searchMode)">
+                        <a href="#" ng-class="{'toggled': $ctrl.searchMode}" mi-glyphicon="{{$ctrl.searchMode ? 'plus' : 'search'}}"></a>
+                    </li>
+                </ul>
+                <div class="components">
+                    <search-inline ng-class="{'active-component': $ctrl.searchMode}"></search-inline>
+                    <quick-task-add ng-class="{'active-component': !$ctrl.searchMode}"></quick-task-add>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><strong>AV</strong></a></li>
+            <li>
+                <a href="#" mi-glyphicon="cog"></a>
+            </li>
+        </ul>
     </div>
 </nav>
