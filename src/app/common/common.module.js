@@ -17,9 +17,14 @@ import {
     NavigationInlineComponent
 } from './navigation-inline';
 
+import {
+    NavigationSidebarComponent
+} from './navigation-sidebar';
+
+
 let ngModule = angular.module('makeItApp.common', []);
 new Registrater(ngModule)
-    .registerComponents([QuickTaskAddComponent, SearchInlineComponent, NavigationInlineComponent])
+    .registerComponents([QuickTaskAddComponent, SearchInlineComponent, NavigationInlineComponent, NavigationSidebarComponent])
     .registerDirectives([GlyphiconDirectiveFactory]);
 
 export default ngModule.name;

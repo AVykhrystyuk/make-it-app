@@ -1,0 +1,21 @@
+aside {
+    @padding-top: 30px;
+    //float: left;
+    width: 270px;
+    padding-top: @padding-top;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: calc(~"100% - " @padding-top);
+    &:hover {
+        overflow-y: auto;
+    }
+}
+
+.nav>li>a {
+    &:hover,
+    &:focus {
+        //text-decoration: none;
+        background-color: #fff;
+    }
+}
