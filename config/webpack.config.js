@@ -163,7 +163,7 @@ function getPlugins(options) {
             minChunks: Infinity
         }),
         new CopyWebpackPlugin([{
-            from: './public'
+            from: './copy_to_public'
         }])
     ];
 
