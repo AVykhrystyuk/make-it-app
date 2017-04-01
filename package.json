@@ -9,8 +9,9 @@
         "build": "rimraf build && webpack --progress --display-modules --config ./config/webpack.config.js",
         "build-prod": "rimraf build && webpack --env.production --display-modules --config ./config/webpack.config.js",
         "lint": "eslint .",
-        "serve": "node server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "serve": "node ./src/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "heroku-postbuild": "npm run build-prod"
     },
     "dependencies": {
         "angular": "^1.6.1",

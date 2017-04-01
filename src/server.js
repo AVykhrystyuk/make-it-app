@@ -1,19 +1,19 @@
 'use strict';
 
 const express = require("express"),
+    path = require('path'),
     compression = require('compression');
 
 const app = express();
 
 app.use(compression());
-app.use(express.static('./build'));
+app.use(express.static(path.resolve('build')));
 
-const config = buildOpenshiftConfig();
+const config = buildConfig();
 app.listen(config.port, config.ipAddress, function() {
     var url = `http://${config.ipAddress}:${config.port}`;
     console.log(`Your server is listening on port ${config.port} (${url})`);
 });
-
 
 function buildConfig() {
     return {
@@ -22,6 +22,7 @@ function buildConfig() {
     };
 }
 
+/*
 function buildOpenshiftConfig() {
     let ip = process.env.OPENSHIFT_NODEJS_IP;
     let port = process.env.OPENSHIFT_NODEJS_PORT;
@@ -39,3 +40,4 @@ function buildOpenshiftConfig() {
 
     return config;
 }
+*/

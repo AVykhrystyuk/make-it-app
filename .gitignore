@@ -1,7 +1,14 @@
 # Dependency directories
 node_modules
 
+npm-debug.log
+
 # Build results
 [Bb]uild/
 
 /.other
+
+# Local development
+*.env
+*.dev
+.DS_Store
