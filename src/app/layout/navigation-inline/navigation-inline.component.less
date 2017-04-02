@@ -80,35 +80,33 @@ nav.navbar .navbar-action {
         top: @top-active-component;
         opacity: 1;
     }
+    .deactivate() {
+        opacity: 0;
+    }
     .deactivate-search() {
         top: -@top-offset;
+        .deactivate();
     }
     .deactivate-quick-task-add() {
         top: @top-offset;
+        .deactivate();
     }
     .animated() {
         position: absolute;
         transition: all .4s ease-in-out;
-        opacity: 0;
     }
     search-inline {
         .animated();
-        .deactivate-search();
-        &.active-component {
-            .activate();
-        }
-        @media (max-width: @screen-xs-max) {
-            .activate() !important;
+        .activate();
+        &.ng-hide {
+            .deactivate-search();
         }
     }
     quick-task-add {
         .animated();
-        .deactivate-quick-task-add();
-        &.active-component {
-            .activate();
-        }
-        @media (max-width: @screen-xs-max) {
-            .deactivate-quick-task-add() !important;
+        .activate();
+        &.ng-hide {
+            .deactivate-quick-task-add();
         }
     }
 }

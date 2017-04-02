@@ -19,13 +19,13 @@
                 </li>
             </ul>
             <div class="components">
-                <search-inline ng-class="{'active-component': $ctrl.searchMode}"></search-inline>
-                <quick-task-add ng-class="{'active-component': !$ctrl.searchMode}"></quick-task-add>
+                <search-inline ng-show="$ctrl.searchMode"></search-inline>
+                <quick-task-add ng-hide="$ctrl.searchMode"></quick-task-add>
             </div>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li class="hidden-xxs"><a href="#"><strong>AV</strong></a></li>
+            <li class="hidden-xxs" ng-hide="$ctrl.searchMode"><a href="#"><strong>AV</strong></a></li>
             <li>
                 <a href="#" mi-glyphicon="cog"></a>
             </li>

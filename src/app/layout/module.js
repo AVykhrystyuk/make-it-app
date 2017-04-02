@@ -14,7 +14,11 @@ import {
 } from './navigation-sidebar';
 
 
-let ngModule = angular.module('makeItApp.layout', [CommonModule]);
+let ngModule = angular.module('makeItApp.layout', [CommonModule])
+    .constant("screenSizeLimits", {
+        xsMax: 767,
+    });
+
 new Registrater(ngModule).registerComponents([NavigationInlineComponent, NavigationSidebarComponent])
 
 export default ngModule.name;
