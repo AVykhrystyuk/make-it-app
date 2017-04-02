@@ -58,7 +58,8 @@ function makeWebpackConfig(options) {
 
     config.resolve = {
          alias: {
-             registrater$: path.resolve('src/app/registrater.js')
+             registrater$: path.resolve('src/app/registrater.js'),
+             common: path.resolve('src/app/common')
          }
     };
 
