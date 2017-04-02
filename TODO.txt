@@ -1,6 +1,6 @@
--fix logo in theme page: nav.navbar .navbar-header { float: left; }       nav.navbar .navbar-action { margin-left: 68px; }
+-menu scroll
+-focused blue border
 -input[search] clear button
 -ngAnotationLoader
 -figure out how to bandle https://fonts.googleapis.com/css?family=Open+Sans:400,700
 -use ui-router
--update to the latest Angular 1x (at the moment 1.6.3)

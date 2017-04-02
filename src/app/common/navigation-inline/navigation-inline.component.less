@@ -26,7 +26,7 @@ nav.navbar {
     padding-top: @padding;
     padding-bottom: @padding;
     .navbar-header {
-        position: absolute;
+        float: left;
         a.navbar-brand {
             @padding: 8px;
             font-size: 21px;
@@ -41,19 +41,26 @@ nav.navbar {
         }
     }
     .navbar-action {
-        width: 60%;
-        //margin-left: 18.5%;
-        margin-left: 174px;
-        transition: all 0.3s ease-in; //width 1s, margin-left 1s ease-in;
-        @media (max-width: @screen-xs-max) {
-            margin-left: 12%;
-        }
-        @media (max-width: @screen-xs) {
-            width: 70%;
-            margin-left: 5%;
-        }
+        width: 65%;
+        margin-left: 66px; //border: 1px solid blue;
         .input-group.input-group-sm {
             margin-top: 5px;
+        }
+        .components {
+            width: 90%;
+            float: left;
+            height: 100%; //border: 1px solid black;
+            quick-task-add,
+            search-inline {
+                width: 100%;
+            }
+        }
+        @media (max-width: @screen-xs-max) {
+            width: 70%;
+            margin-left: 5%;
+            .components {
+                width: 100%;
+            }
         }
     }
 }
@@ -61,13 +68,12 @@ nav.navbar {
 
 /* navbar-action contols animations */
 
-.navbar-action {
-    overflow: hidden;
-    position: relative;
-    height: 40px;
-}
-
 nav.navbar .navbar-action {
+    overflow: hidden;
+    height: 40px;
+    .components {
+        position: relative;
+    }
     @top-offset: 100px;
     @top-active-component: 0;
     .activate() {
