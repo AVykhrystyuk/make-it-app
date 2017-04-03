@@ -57,10 +57,10 @@ function makeWebpackConfig(options) {
     };
 
     config.resolve = {
-         alias: {
-             registrater$: path.resolve('src/app/registrater.js'),
-             common: path.resolve('src/app/common')
-         }
+        alias: {
+            registrater$: path.resolve('src/app/registrater.js'),
+            common: path.resolve('src/app/common')
+        }
     };
 
     return config;
@@ -119,15 +119,16 @@ function getStyleModuleRules(options) {
 function getAllModuleRules(options) {
     const moduleRules = [{
         test: /\.js$/,
-        loader: "eslint-loader",
-        enforce: "pre",
         exclude: /node_modules/,
+        loader: "eslint-loader",
+        enforce: "pre"
     }, {
         test: /\.js$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        loader: "babel-loader",
         options: {
-            presets: ["es2015-native-modules"]
+            presets: ["es2015-native-modules"],
+            plugins: ["angularjs-annotate"]
         }
     }, {
         test: /\.(jpg|jpeg|gif|png)$/,
