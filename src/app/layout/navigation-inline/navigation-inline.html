@@ -2,7 +2,7 @@
     <div class="container">
         <div class="menu-toggler visible-xs">
             <ul class="nav navbar-nav navbar-left">
-                <li>
+                <li ng-click="$ctrl.openMiniMenu()">
                     <a href="#" mi-glyphicon="align-justify"></a>
                 </li>
             </ul>
@@ -14,7 +14,7 @@
 
         <div class="navbar-left navbar-action">
             <ul class="nav navbar-nav hidden-xs">
-                <li ng-click="$ctrl.setSearchVisibility(!$ctrl.searchMode)">
+                <li ng-click="$ctrl.toggleSearchVisibility()">
                     <a href="#" ng-class="{'toggled': $ctrl.searchMode}" mi-glyphicon="{{$ctrl.searchMode ? 'plus' : 'search'}}"></a>
                 </li>
             </ul>

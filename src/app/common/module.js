@@ -13,9 +13,15 @@ import {
     QuickTaskAddComponent
 } from './quick-task-add';
 
+import {
+    ScreenService,
+    ScreenDigestedService
+} from './services';
+
 let ngModule = angular.module('makeItApp.common', []);
 new Registrater(ngModule)
     .registerComponents([QuickTaskAddComponent, SearchInlineComponent])
-    .registerDirectives([GlyphiconDirectiveFactory]);
+    .registerDirectives([GlyphiconDirectiveFactory])
+    .registerServices([ScreenService, ScreenDigestedService]);
 
 export default ngModule.name;

@@ -2,48 +2,52 @@
 
 import './navigation-inline.component.less';
 import template from './navigation-inline.html';
-import angular from 'angular';
 
 class Controller {
-    constructor($rootScope, $window, screenSizeLimits) {
+    constructor(screenDigestedService) {
         'ngInject';
-        this.$rootScope = $rootScope;
-        this.$window = $window;
-        this.screenSizeLimits = screenSizeLimits;
+        this.screenDigestedService = screenDigestedService;
     }
-
     $onInit() {
         this.searchMode = true;
-        this.windowElement = angular.element(this.$window);
-        this._windowResized = () => {
-            let width = this.$window.innerWidth;
-            if (width < this.screenSizeLimits.xsMax) {
-                if (!this.searchMode) {
-                    this.searchMode = true;
-                    // manuall $digest required as resize event is outside of angular
-                    this.$rootScope.$digest();
-                }
-            }
-        }
-
-        this.windowElement.on('resize', this._windowResized);
+        this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
     }
 
     $onDestroy() {
-        this.windowElement.off('resize', this._windowResized);
+        this._miniModeChangedSubscription.remove();
     }
 
-    setSearchVisibility(visible) {
-        if (this.searchMode === visible) {
-            return;
+    _miniModeChanged() {
+        if (this.screenDigestedService.miniMode) {
+            if (!this.searchMode) {
+                this.searchMode = true;
+            }
         }
+    }
 
-        this.searchMode = visible;
+    toggleSearchVisibility() {
+        this.searchMode = !this.searchMode;
+    }
+
+    openMiniMenu() {
+        //TODO: impl EventFactory wrapper
+        // this.onMiniMenuOpen(
+        //     this.EventFactory.create({
+        //         todo: this.todo
+        //     })
+        // );
+        // without EventFactory wrapper
+        this.onMiniMenuOpen({
+            $event: {}
+        });
     }
 }
 
 export const NavigationInlineComponent = {
     __selector__: 'navigationInline',
+    bindings: {
+        onMiniMenuOpen: '&'
+    },
     template,
     controller: Controller
 };

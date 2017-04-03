@@ -8,11 +8,21 @@ class Controller {
         'ngInject';
     }
 
-    $onInit() {}
+    $onInit() {
+        this.isMenuOpen = false;
+    }
+
+    hideMiniMenu() {
+        this.isMenuOpen = false;
+    }
 }
 
 export const NavigationSidebarComponent = {
     __selector__: 'navigationSidebar',
+    bindings: {
+        options: '<',
+        isMenuOpen: '='
+    },
     template,
     controller: Controller
 };

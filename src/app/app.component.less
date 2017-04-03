@@ -1,9 +1,11 @@
 /* app.component.less */
+
 @import "~bootstrap/less/variables.less";
 @import "~common/variables.less";
-
 html,
-body {
+body,
+app,
+app>div {
     height: 100%;
 }
 
@@ -11,7 +13,6 @@ app {
     display: block;
     padding-top: 48px;
     background-color: #fafafa;
-    height: 100%;
 }
 
 .container {
@@ -21,21 +22,22 @@ app {
     &[role=main] {
         height: 100%;
         padding-left: 0;
-        padding-right: 0; 
-        // @media (max-width: @screen-xs-max) { }
+        padding-right: 0;
     }
 }
 
 main {
     @border: 1px solid #f1f1f1;
-     //min-height: 380px;
     background-color: #fff;
     padding: 0 15px;
     margin-left: @sidebar-width;
     border-left: @border;
     border-right: @border;
     height: 100%;
-    @media (max-width: @screen-xs-max) {
+}
+
+.mini-mode {
+    main {
         margin-left: 0;
     }
 }

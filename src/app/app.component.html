@@ -1,17 +1,18 @@
-<header>
-    <navigation-inline></navigation-inline>
-</header>
+<div ng-class="{'mini-mode': $ctrl.miniMode}">
+    <header>
+        <navigation-inline on-mini-menu-open="$ctrl.openMiniMenu($event);"></navigation-inline>
+    </header>
 
-<div class="container" role="main">
-    <navigation-sidebar></navigation-sidebar>
+    <div class="container" role="main">
+        <navigation-sidebar is-menu-open="$ctrl.isMenuOpen"></navigation-sidebar>
 
-    <main>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Text:</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus laboriosam, aliquid nulla eveniet fugiat odit amet. Id qui quo, vitae quisquam voluptatum quidem pariatur temporibus officiis modi odit sed! Itaque?</h1>
+        <main>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Text:</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus laboriosam, aliquid nulla eveniet fugiat odit amet. Id qui quo, vitae quisquam voluptatum quidem pariatur temporibus officiis modi odit sed! Itaque?</h1>
+                </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </div>
