@@ -4,24 +4,28 @@ import './navigation-sidebar.component.less';
 import template from './navigation-sidebar.html';
 
 class Controller {
-    constructor() {
+    constructor(eventFactory) {
         'ngInject';
+        this.eventFactory = eventFactory;
     }
 
-    $onInit() {
-        this.isMenuOpen = false;
-    }
+    $onInit() {}
+
+    // $onChanges(changes) {
+    //     if (changes.isMenuOpen) {
+    //     }
+    // }
 
     hideMiniMenu() {
-        this.isMenuOpen = false;
+        this.onMiniMenuClosed(this.eventFactory.empty());
     }
 }
 
 export const NavigationSidebarComponent = {
     __selector__: 'navigationSidebar',
     bindings: {
-        options: '<',
-        isMenuOpen: '='
+        isMenuOpen: '<',
+        onMiniMenuClosed: '&'
     },
     template,
     controller: Controller

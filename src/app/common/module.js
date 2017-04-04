@@ -15,13 +15,14 @@ import {
 
 import {
     ScreenService,
-    ScreenDigestedService
+    ScreenDigestedService,
+    EventFactory
 } from './services';
 
 let ngModule = angular.module('makeItApp.common', []);
 new Registrater(ngModule)
     .registerComponents([QuickTaskAddComponent, SearchInlineComponent])
     .registerDirectives([GlyphiconDirectiveFactory])
-    .registerServices([ScreenService, ScreenDigestedService]);
+    .registerServices([ScreenService, ScreenDigestedService, EventFactory]);
 
 export default ngModule.name;

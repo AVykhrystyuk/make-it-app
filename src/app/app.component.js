@@ -20,10 +20,17 @@ class Controller {
 
     _updateMiniMode() {
         this.miniMode = this.screenDigestedService.miniMode;
+        if (!this.miniMode && this.isMenuOpen) {
+            this.isMenuOpen = false;
+        }
     }
 
-    openMiniMenu({}) {
+    onOpenMiniMenu({}) {
         this.isMenuOpen = true;
+    }
+
+    onCloseMiniMenu({}) {
+        this.isMenuOpen = false;
     }
 }
 

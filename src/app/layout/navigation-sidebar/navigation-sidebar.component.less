@@ -59,18 +59,19 @@ aside {
             transition: left .1s ease-in;
         }
     }
-    .menu-overlay {
-        position: fixed;
-        z-index: 500;
-        left: @sidebar-width;
-        top: @nav-inline-height;
-        width: calc(~"100% - " @sidebar-width);
-        height: calc(~"100% - " @nav-inline-height);
-        background: darkgray;
-        opacity: 0.6;
-        transition: opacity .1s ease-in;
-        &.ng-hide {
-            opacity: 0;
-        }
+}
+
+.menu-overlay {
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: @nav-inline-height;
+    width: 100%;
+    height: calc(~"100% - " @nav-inline-height);
+    background: darkgray;
+    opacity: 0.6;
+    transition: opacity .1s ease-in;
+    &.ng-hide {
+        opacity: 0;
     }
 }

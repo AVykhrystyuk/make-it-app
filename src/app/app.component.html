@@ -1,10 +1,10 @@
 <div ng-class="{'mini-mode': $ctrl.miniMode}">
     <header>
-        <navigation-inline on-mini-menu-open="$ctrl.openMiniMenu($event);"></navigation-inline>
+        <navigation-inline on-mini-menu-open="$ctrl.onOpenMiniMenu($event);"></navigation-inline>
     </header>
 
     <div class="container" role="main">
-        <navigation-sidebar is-menu-open="$ctrl.isMenuOpen"></navigation-sidebar>
+        <navigation-sidebar on-mini-menu-closed="$ctrl.onCloseMiniMenu($event);" is-menu-open="$ctrl.isMenuOpen"></navigation-sidebar>
 
         <main>
             <div class="row">

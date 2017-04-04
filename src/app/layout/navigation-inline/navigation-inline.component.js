@@ -4,9 +4,10 @@ import './navigation-inline.component.less';
 import template from './navigation-inline.html';
 
 class Controller {
-    constructor(screenDigestedService) {
+    constructor(screenDigestedService, eventFactory) {
         'ngInject';
         this.screenDigestedService = screenDigestedService;
+        this.eventFactory = eventFactory;
     }
     $onInit() {
         this.searchMode = true;
@@ -30,16 +31,7 @@ class Controller {
     }
 
     openMiniMenu() {
-        //TODO: impl EventFactory wrapper
-        // this.onMiniMenuOpen(
-        //     this.EventFactory.create({
-        //         todo: this.todo
-        //     })
-        // );
-        // without EventFactory wrapper
-        this.onMiniMenuOpen({
-            $event: {}
-        });
+        this.onMiniMenuOpen(this.eventFactory.empty());
     }
 }
 
