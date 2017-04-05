@@ -1,8 +1,8 @@
 'use strict';
 
-export class TodayService {
+export class LaterService {
     static get __name__() {
-        return 'todayService';
+        return 'laterService';
     }
 
     constructor($q) {
@@ -10,10 +10,10 @@ export class TodayService {
         this.$q = $q;
     }
 
-    getTodaysData() {
+    getLaterData() {
         var deferred = this.$q.defer();
 
-        setTimeout(() => deferred.resolve('Hello, from TodayService!'), 1000);
+        setTimeout(() => deferred.resolve('Hello, from LaterService!'), 1000);
 
         return deferred.promise;
     }

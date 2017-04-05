@@ -7,10 +7,19 @@ class Сontroller {
         'ngInject';
     }
     $onInit() {}
+    
+    $onChanges(changes) {
+        if (changes.laterData) {
+            // this.laterData = Object.assign({}, this.laterData);
+        }
+    }
 }
 
 export const LaterComponent = {
     __name__: 'later',
     template,
-    controller: Сontroller
+    controller: Сontroller,
+    bindings: {
+        laterData: '<'
+    },
 };

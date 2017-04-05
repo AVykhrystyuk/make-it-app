@@ -13,7 +13,7 @@ export default class Router {
                 url: '/today',
                 component: 'today',
                 resolve: {
-                    //todoData: TodoService => TodoService.getTodos()
+                    todaysData: todayService => todayService.getTodaysData()
                 }
             }).state({
                 name: 'tommorow',
@@ -34,7 +34,7 @@ export default class Router {
                 url: '/later',
                 component: 'later',
                 resolve: {
-                    //todoData: TodoService => TodoService.getTodos()
+                    laterData: laterService => laterService.getLaterData()
                 }
             });
 

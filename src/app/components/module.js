@@ -4,7 +4,8 @@ import angular from 'angular';
 import Registrater from 'registrater';
 
 import {
-    TodayComponent
+    TodayComponent,
+    TodayService
 } from './today';
 import {
     TommorowComponent
@@ -13,11 +14,14 @@ import {
     Next7DaysComponent
 } from './next-7-days';
 import {
-    LaterComponent
+    LaterComponent,
+    LaterService,
 } from './later';
 
 
 const ngModule = angular.module('makeItApp.components', []);
-new Registrater(ngModule).registerComponents([TodayComponent, TommorowComponent, Next7DaysComponent, LaterComponent]);
+new Registrater(ngModule)
+    .registerComponents([TodayComponent, TommorowComponent, Next7DaysComponent, LaterComponent])
+    .registerServices([TodayService, LaterService]);
 
 export default ngModule.name;
