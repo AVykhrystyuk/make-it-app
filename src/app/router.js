@@ -13,7 +13,7 @@ export default class Router {
                 url: '/today',
                 component: 'today',
                 resolve: {
-                    todaysData: todayService => todayService.getTodaysData()
+                    todaysData: todayService => { 'ngInject'; return todayService.getTodaysData(); }
                 }
             }).state({
                 name: 'tommorow',
@@ -34,7 +34,7 @@ export default class Router {
                 url: '/later',
                 component: 'later',
                 resolve: {
-                    laterData: laterService => laterService.getLaterData()
+                    laterData: laterService => { 'ngInject'; laterService.getLaterData(); }
                 }
             });
 
