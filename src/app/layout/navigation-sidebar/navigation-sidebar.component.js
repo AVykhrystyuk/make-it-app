@@ -9,7 +9,25 @@ class Controller {
         this.eventFactory = eventFactory;
     }
 
-    $onInit() {}
+    $onInit() {
+        this.items = [{
+            url: 'today',
+            glyphicon: 'bell',
+            text: 'Today'
+        }, {
+            url: 'tommorow',
+            glyphicon: 'screenshot',
+            text: 'Tommorow'
+        }, {
+            url: 'next7Days',
+            glyphicon: 'calendar',
+            text: 'Next 7 days'
+        }, {
+            url: 'later',
+            glyphicon: 'road',
+            text: 'Later'
+        }]
+    }
 
     // $onChanges(changes) {
     //     if (changes.isMenuOpen) {
