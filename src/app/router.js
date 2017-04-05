@@ -7,36 +7,43 @@ export default class Router {
     }
 
     registerRoutes() {
-        this.$stateProvider
-            .state({
-                name: 'today',
-                url: '/today',
-                component: 'today',
-                resolve: {
-                    todaysData: todayService => { 'ngInject'; return todayService.getTodaysData(); }
+        let states = [{
+            name: 'today',
+            url: '/today',
+            component: 'today',
+            resolve: {
+                todaysData: todayService => {
+                    'ngInject';
+                    return todayService.getTodaysData();
                 }
-            }).state({
-                name: 'tommorow',
-                url: '/tommorow',
-                component: 'tommorow',
-                resolve: {
-                    //todoData: TodoService => TodoService.getTodos()
+            }
+        }, {
+            name: 'tommorow',
+            url: '/tommorow',
+            component: 'tommorow',
+            // resolve: {
+            //     //todoData: TodoService => TodoService.getTodos()
+            // }
+        }, {
+            name: 'next7Days',
+            url: '/next-7-days',
+            component: 'next7Days',
+            // resolve: {
+            //     //todoData: TodoService => TodoService.getTodos()
+            // }
+        }, {
+            name: 'later',
+            url: '/later',
+            component: 'later',
+            resolve: {
+                laterData: laterService => {
+                    'ngInject';
+                    laterService.getLaterData();
                 }
-            }).state({
-                name: 'next7Days',
-                url: '/next-7-days',
-                component: 'next7Days',
-                resolve: {
-                    //todoData: TodoService => TodoService.getTodos()
-                }
-            }).state({
-                name: 'later',
-                url: '/later',
-                component: 'later',
-                resolve: {
-                    laterData: laterService => { 'ngInject'; laterService.getLaterData(); }
-                }
-            });
+            }
+        }];
+
+        states.forEach(s => this.$stateProvider.state(s));
 
         this.$urlRouterProvider.otherwise('/today');
     }
