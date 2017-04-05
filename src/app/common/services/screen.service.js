@@ -1,10 +1,12 @@
+'use strict';
+
 import angular from 'angular';
 import {
     EventEmitter
 } from 'fbemitter';
 
 export class ScreenService {
-    static get __selector__() {
+    static get __name__() {
         return 'screenService';
     }
 

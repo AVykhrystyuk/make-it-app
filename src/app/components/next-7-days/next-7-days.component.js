@@ -10,7 +10,7 @@ class Сontroller {
 }
 
 export const Next7DaysComponent = {
-    __selector__: 'next7Days',
+    __name__: 'next7Days',
     template,
     controller: Сontroller
 };

@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 
-const directiveSelector = 'miGlyphicon';
+const directiveName = 'miGlyphicon';
 
 export class GlyphiconDirective {
     constructor() {
@@ -41,7 +41,7 @@ export class GlyphiconDirective {
     }
 
     link($scope, $element, $attrs) {
-        $attrs.$observe(directiveSelector, newValue => this._updateOrCreateChildElement($element, newValue));
+        $attrs.$observe(directiveName, newValue => this._updateOrCreateChildElement($element, newValue));
         this._updateOrCreateChildElement($element, $attrs.miGlyphicon);
     }
 }
@@ -51,4 +51,4 @@ export function GlyphiconDirectiveFactory() {
     return new GlyphiconDirective();
 };
 
-GlyphiconDirectiveFactory.__selector__ = directiveSelector;
+GlyphiconDirectiveFactory.__name__ = directiveName;

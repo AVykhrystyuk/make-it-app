@@ -36,7 +36,7 @@ class Controller {
 }
 
 export const NavigationInlineComponent = {
-    __selector__: 'navigationInline',
+    __name__: 'navigationInline',
     bindings: {
         onMiniMenuOpen: '&'
     },

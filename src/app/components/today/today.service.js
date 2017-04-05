@@ -1,6 +1,6 @@
 'use strict';
 
-export class EventFactory {
+export class TodayService {
     static get __name__() {
         return 'eventFactory';
     }
@@ -10,7 +10,7 @@ export class EventFactory {
             $event: {}
         };
     }
-    
+
     create(event) {
         return {
             $event: event

@@ -10,7 +10,7 @@ class Сontroller {
 }
 
 export const TodayComponent = {
-    __selector__: 'today',
+    __name__: 'today',
     template,
     controller: Сontroller
 };

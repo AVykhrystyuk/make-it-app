@@ -13,7 +13,7 @@ class Сontroller {
 }
 
 export const QuickTaskAddComponent = {
-    __selector__: 'quickTaskAdd',
+    __name__: 'quickTaskAdd',
     template,
     controller: Сontroller
 };

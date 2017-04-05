@@ -1,7 +1,9 @@
+'use strict';
+
 import {ScreenService} from './screen.service.js';
 
 export class ScreenDigestedService extends ScreenService {
-    static get __selector__() {
+    static get __name__() {
         return 'screenDigestedService';
     }
 

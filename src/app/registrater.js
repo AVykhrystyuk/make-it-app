@@ -21,17 +21,17 @@ export default class Registrater {
     }
 
     registerComponent(component) {
-        this.ngModule.component(component.__selector__, component);
+        this.ngModule.component(component.__name__, component);
         return this;
     }
 
     registerDirective(directive) {
-        this.ngModule.directive(directive.__selector__, directive);
+        this.ngModule.directive(directive.__name__, directive);
         return this;
     }
 
     registerService(service) {
-        this.ngModule.service(service.__selector__, service);
+        this.ngModule.service(service.__name__, service);
         return this;
     }
 }

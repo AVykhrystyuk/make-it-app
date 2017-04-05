@@ -35,7 +35,7 @@ class Controller {
 }
 
 export const AppComponent = {
-    __selector__: 'app',
+    __name__: 'app',
     template,
     controller: Controller
 };

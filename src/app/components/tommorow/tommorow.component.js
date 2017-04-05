@@ -10,7 +10,7 @@ class Сontroller {
 }
 
 export const TommorowComponent = {
-    __selector__: 'tommorow',
+    __name__: 'tommorow',
     template,
     controller: Сontroller
 };

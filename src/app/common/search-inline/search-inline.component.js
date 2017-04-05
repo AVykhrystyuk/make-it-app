@@ -13,7 +13,7 @@ class Сontroller {
 }
 
 export const SearchInlineComponent = {
-    __selector__: 'searchInline',
+    __name__: 'searchInline',
     template,
     controller: Сontroller
 };

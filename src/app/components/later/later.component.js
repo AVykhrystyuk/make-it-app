@@ -10,7 +10,7 @@ class Сontroller {
 }
 
 export const LaterComponent = {
-    __selector__: 'later',
+    __name__: 'later',
     template,
     controller: Сontroller
 };

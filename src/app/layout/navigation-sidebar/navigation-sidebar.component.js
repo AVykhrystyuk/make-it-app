@@ -40,7 +40,7 @@ class Controller {
 }
 
 export const NavigationSidebarComponent = {
-    __selector__: 'navigationSidebar',
+    __name__: 'navigationSidebar',
     bindings: {
         isMenuOpen: '<',
         onMiniMenuClosed: '&'
