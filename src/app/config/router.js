@@ -1,5 +1,9 @@
 'use strict';
 
+import {
+    AuthError
+} from 'auth';
+
 export default class Router {
     constructor($stateProvider, $urlRouterProvider) {
         this.$stateProvider = $stateProvider;
@@ -36,10 +40,14 @@ export default class Router {
             url: '/later',
             component: 'later',
             resolve: {
-                laterData: laterService => {
+                laterData: (laterService, $q) => {
                     'ngInject';
-                    laterService.getLaterData();
+
+                    //return $q.reject(new AuthError("not authenticated"));
+                    return $q.reject('MY ERROR MESSAGE');
+                    //return laterService.getLaterData();
                 }
+
             }
         }];
 

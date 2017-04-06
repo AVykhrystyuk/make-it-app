@@ -57,13 +57,19 @@ function makeWebpackConfig(options) {
     };
 
     config.resolve = {
-        alias: {
-            registrater$: path.resolve('src/app/registrater.js'),
-            common: path.resolve('src/app/common')
-        }
+        alias: getAliases()
     };
 
     return config;
+}
+
+function getAliases() {
+    return {
+        registrater$: path.resolve('src/app/common/registrater.js'),
+        common: path.resolve('src/app/common'),
+        auth: path.resolve('src/app/common/auth'),
+        utils: path.resolve('src/app/common/utils')
+    };
 }
 
 function getStyleModuleRules(options) {

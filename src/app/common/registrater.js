@@ -20,6 +20,11 @@ export default class Registrater {
         return this;
     }
 
+    registerFactories(factories) {
+        factories.forEach(f => this.registerFactory(f));
+        return this;
+    }
+
     registerComponent(component) {
         this.ngModule.component(component.__name__, component);
         return this;
@@ -32,6 +37,11 @@ export default class Registrater {
 
     registerService(service) {
         this.ngModule.service(service.__name__, service);
+        return this;
+    }
+
+    registerFactory(factory) {
+        this.ngModule.factory(factory.__name__, factory);
         return this;
     }
 }

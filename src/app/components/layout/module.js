@@ -3,8 +3,6 @@
 import angular from 'angular';
 import Registrater from 'registrater';
 
-import CommonModule from 'common/module.js';;
-
 import {
     NavigationInlineComponent
 } from './navigation-inline';
@@ -14,11 +12,12 @@ import {
 } from './navigation-sidebar';
 
 
-let ngModule = angular.module('makeItApp.layout', [CommonModule])
+const ngModule = angular.module('makeItApp.components.layout', [])
     .constant("screenSizeLimits", {
         xsMax: 767,
     });
 
-new Registrater(ngModule).registerComponents([NavigationInlineComponent, NavigationSidebarComponent])
+new Registrater(ngModule)
+    .registerComponents([NavigationInlineComponent, NavigationSidebarComponent]);
 
 export default ngModule.name;

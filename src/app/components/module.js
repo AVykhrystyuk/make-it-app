@@ -1,27 +1,11 @@
 'use strict';
 
 import angular from 'angular';
-import Registrater from 'registrater';
 
-import {
-    TodayComponent,
-    TodayService
-} from './today';
-import {
-    TommorowComponent
-} from './tommorow';
-import {
-    Next7DaysComponent
-} from './next-7-days';
-import {
-    LaterComponent,
-    LaterService,
-} from './later';
+import CommonModule from './common/module.js';
+import LayoutModule from './layout/module.js';
+import PagesModule from './pages/module.js';
 
-
-const ngModule = angular.module('makeItApp.components', []);
-new Registrater(ngModule)
-    .registerComponents([TodayComponent, TommorowComponent, Next7DaysComponent, LaterComponent])
-    .registerServices([TodayService, LaterService]);
+const ngModule = angular.module('makeItApp.components', [CommonModule, LayoutModule, PagesModule]);
 
 export default ngModule.name;
