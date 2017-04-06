@@ -18,7 +18,9 @@ export default class Router {
             resolve: {
                 todaysData: todayService => {
                     'ngInject';
-                    return todayService.getTodaysData();
+                    return todayService.getTodaysData().then(() => {
+                        throw new AuthError('Bad auth credantials');
+                    });
                 }
             }
         }, {
@@ -44,7 +46,7 @@ export default class Router {
                     'ngInject';
 
                     //return $q.reject(new AuthError("not authenticated"));
-                    return $q.reject('MY ERROR MESSAGE');
+                    return $q.reject('Some unexpected error!');
                     //return laterService.getLaterData();
                 }
 

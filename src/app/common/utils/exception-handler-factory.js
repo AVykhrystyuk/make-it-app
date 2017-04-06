@@ -1,10 +1,6 @@
 'use strict';
 
-import {
-    AuthError
-} from 'auth';
-
-export function $exceptionHandlerFactory($log /*,errorHandler*/ ) {
+export function $exceptionHandlerFactory($log, $injector) {
     'ngInject'
     // TODO: root out all of these ignored exceptions
     const ignorePatterns = [
@@ -18,16 +14,24 @@ export function $exceptionHandlerFactory($log /*,errorHandler*/ ) {
         */
     ];
 
+    let exceptionHandlerService = null;
+
+    function getExceptionHandlerService() {
+        if (!exceptionHandlerService) {
+            exceptionHandlerService = $injector.get('exceptionHandlerService');
+        }
+
+        return exceptionHandlerService;
+    }
+
     return function exceptionHandler(exception, cause) {
         if (ignorePatterns.some(pattern => pattern.test(exception))) {
             return;
         }
 
-        // if (exception instanceof AuthError) {
-        //     return;
-        // }
+        let service = getExceptionHandlerService();
+        service.handle(exception);
 
-        //errorHandler.reportError(exception);
         $log.error(exception, ', cause:', cause);
     }
 }

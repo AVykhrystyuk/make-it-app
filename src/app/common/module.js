@@ -6,11 +6,15 @@ import Registrater from 'registrater';
 import {
     ScreenService,
     ScreenDigestedService,
-    EventFactory
+    EventFactory,
+    NotificationService,
+    ExceptionHandlerService
 } from './services';
 
-let ngModule = angular.module('makeItApp.common', []);
+const ngModule = angular.module('makeItApp.common', []);
+ngModule.config(NotificationService.configure);
+
 new Registrater(ngModule)
-    .registerServices([ScreenService, ScreenDigestedService, EventFactory]);
+    .registerServices([ScreenService, ScreenDigestedService, EventFactory, NotificationService, ExceptionHandlerService]);
 
 export default ngModule.name;

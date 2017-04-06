@@ -5,5 +5,6 @@ import './bootstrap.js'
 import 'angular';
 import 'angular-ui-router';
 import 'angular-animate';
+import './angular-toastr.js';
 
 import 'fbemitter';
