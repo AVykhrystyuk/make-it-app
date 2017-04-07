@@ -5,7 +5,10 @@ import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
 import toastr from 'angular-toastr';
 
-import configure from './config';
+import {
+    Router,
+    AnimateProvider
+} from './config';
 
 import Registrater from 'registrater';
 import {
@@ -20,16 +23,16 @@ import ComponentsModule from './components/module.js';
 import DirectivesModule from './directives/module.js';
 
 const appModule = angular.module('makeItApp', [
-    ngAnimate,
-    toastr,
-    uiRouter,
+        ngAnimate,
+        toastr,
+        uiRouter,
 
-    CommonModule,
-    ComponentsModule,
-    DirectivesModule
-]);
-
-configure(appModule);
+        CommonModule,
+        ComponentsModule,
+        DirectivesModule
+    ])
+    .config(Router.configure)
+    .config(AnimateProvider.configure);
 
 new Registrater(appModule)
     .registerComponents([AppComponent])

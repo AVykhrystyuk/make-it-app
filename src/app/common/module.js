@@ -11,8 +11,8 @@ import {
     ExceptionHandlerService
 } from './services';
 
-const ngModule = angular.module('makeItApp.common', []);
-ngModule.config(NotificationService.configure);
+const ngModule = angular.module('makeItApp.common', [])
+    .config(NotificationService.configure);
 
 new Registrater(ngModule)
     .registerServices([ScreenService, ScreenDigestedService, EventFactory, NotificationService, ExceptionHandlerService]);

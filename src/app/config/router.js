@@ -4,23 +4,33 @@ import {
     AuthError
 } from 'auth';
 
-export default class Router {
+export class Router {
     constructor($stateProvider, $urlRouterProvider) {
         this.$stateProvider = $stateProvider;
         this.$urlRouterProvider = $urlRouterProvider;
     }
 
+    static configure($stateProvider, $urlRouterProvider) {
+        'ngInject';
+        new Router($stateProvider, $urlRouterProvider).registerRoutes();
+    }
+
     registerRoutes() {
-        let states = [{
+        let states = this.getStates();
+        states.forEach(s => this.$stateProvider.state(s));
+
+        this.$urlRouterProvider.otherwise('/today');
+    }
+
+    getStates() {
+        return [{
             name: 'today',
             url: '/today',
             component: 'today',
             resolve: {
                 todaysData: todayService => {
                     'ngInject';
-                    return todayService.getTodaysData().then(() => {
-                        throw new AuthError('Bad auth credantials');
-                    });
+                    return todayService.getTodaysData();
                 }
             }
         }, {
@@ -34,9 +44,11 @@ export default class Router {
             name: 'next7Days',
             url: '/next-7-days',
             component: 'next7Days',
-            // resolve: {
-            //     //todoData: TodoService => TodoService.getTodos()
-            // }
+            resolve: {
+                next7DaysData: () => {
+                    throw new AuthError('Bad auth credantials');
+                }
+            }
         }, {
             name: 'later',
             url: '/later',
@@ -52,9 +64,5 @@ export default class Router {
 
             }
         }];
-
-        states.forEach(s => this.$stateProvider.state(s));
-
-        this.$urlRouterProvider.otherwise('/today');
     }
 }

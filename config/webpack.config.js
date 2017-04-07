@@ -148,7 +148,7 @@ function getAllModuleRules(options) {
         loader: 'url-loader',
         options: {
             limit: 1024,
-            name: "assets/fonts/[name].[hash].[ext]"
+            name: "assets/other/[name].[hash].[ext]"
         }
     }, {
         test: /\.html$/,

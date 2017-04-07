@@ -8,3 +8,5 @@ import 'angular-animate';
 import './angular-toastr.js';
 
 import 'fbemitter';
+
+import './font-awesome.js';
