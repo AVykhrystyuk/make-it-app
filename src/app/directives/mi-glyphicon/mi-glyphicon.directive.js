@@ -19,10 +19,11 @@ export class GlyphiconDirective {
             return;
         }
 
-        let iElements = $element.children('i .glyphicon');
-        if (iElements.length) {
-            let oldIconId = iElements.attr('icon-id');
-            iElements
+        let iElement = $element[0].querySelector('i.glyphicon');
+        if (iElement) {
+            iElement = angular.element(iElement);
+            let oldIconId = iElement.attr('icon-id');
+            iElement
                 .removeClass(this._getIconClass(oldIconId))
                 .attr('icon-id', iconId)
                 .addClass(this._getIconClass(iconId));
@@ -31,7 +32,7 @@ export class GlyphiconDirective {
 
         $element.addClass('glyphiconized');
 
-        let iElement = angular.element('<i>')
+        iElement = angular.element('<i>')
             .attr('icon-id', iconId)
             .addClass('glyphicon')
             .addClass(this._getIconClass(iconId))
