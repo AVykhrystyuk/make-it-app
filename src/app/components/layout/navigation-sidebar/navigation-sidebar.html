@@ -4,7 +4,7 @@
     </div>
     <menu class="nav nav-pills nav-stacked">
         <li ng-repeat="item in $ctrl.items">
-            <a ui-sref="{{item.state}}" ui-sref-active="active" mi-glyphicon="{{item.glyphicon}}" ng-click="$ctrl.hideMiniMenu()"> {{item.text}} <i ng-show="item.inTransition" class="fa fa-spinner fa-spin" aria-hidden="true"></i></a>
+            <a ui-sref="{{item.state}}" ui-sref-active="active" mi-glyphicon="{{item.glyphicon}}" ng-click="$ctrl.hideMiniMenu()"> {{item.text}} <i ng-show="item.inTransition" class="fa fa-spinner fa-pulse" aria-hidden="true"></i></a>
         </li>
     </menu>
 </aside>

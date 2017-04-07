@@ -1,4 +1,4 @@
-import './bootswatch.less';
+import './bootstrap.less';
 
 //import 'bootstrap/less/bootstrap.less';
 //import 'bootstrap/less/theme.less';
