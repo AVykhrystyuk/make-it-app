@@ -9,4 +9,4 @@ import './angular-toastr.js';
 
 import 'fbemitter';
 
-import './font-awesome.js';
+import 'ngFontAwesome'; //leads to './angular-fontawesome.js';

@@ -20,18 +20,18 @@ export class NotificationService {
     }
 
     error(message, title) {
-        return this.toastr.error(message, title || "Error");
+        return this.toastr.error(message, title);
     }
 
     warning(message, title) {
-        return this.toastr.warning(message, title || "Warning");
+        return this.toastr.warning(message, title);
     }
 
     info(message, title) {
-        return this.toastr.info(message, title || "Information");
+        return this.toastr.info(message, title);
     }
 
     success(message, title) {
-        return this.toastr.success(message, title || "Success");
+        return this.toastr.success(message, title);
     }
 }

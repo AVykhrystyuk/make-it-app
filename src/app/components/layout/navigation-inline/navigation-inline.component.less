@@ -1,6 +1,5 @@
 @import "~bootstrap/less/variables.less";
 @import "~common/variables.less";
-
 nav.navbar {
     @padding: 4px;
     padding-top: @padding;
@@ -9,11 +8,21 @@ nav.navbar {
     .nav.navbar-nav {
         float: left;
         margin: 0;
-        li a.glyphiconized {
-            padding: 9px 13px;
-            cursor: pointer;
-            .glyphicon {
-                font-size: 18.5px;
+        &.fa-list {
+            li {
+                &.initials {
+                    a {
+                        padding-top: 11px;
+                        padding-bottom: 11px;
+                    }
+                }
+                a {
+                    padding: 9px;
+                    cursor: pointer;
+                    span.fa {
+                        font-size: 21px;
+                    }
+                }
             }
         }
         &.navbar-left {
@@ -36,15 +45,15 @@ nav.navbar {
     .navbar-header {
         float: left;
         a.navbar-brand {
-            @padding: 8px;
-            font-size: 21px;
+            @padding: 10px;
+            font-size: 22px;
             padding-top: @padding;
             padding-bottom: @padding;
         }
     }
     .navbar-action {
         width: 65%;
-        margin-left: 66px; //border: 1px solid blue;
+        margin-left: 55px; //border: 1px solid blue;
         .input-group.input-group-sm {
             margin-top: 5px;
         }

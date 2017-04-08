@@ -4,18 +4,38 @@ import './navigation-inline.component.less';
 import template from './navigation-inline.html';
 
 class Controller {
-    constructor(screenDigestedService, eventFactory) {
+    constructor($transitions, screenDigestedService, eventFactory) {
         'ngInject';
+        this.$transitions = $transitions;
         this.screenDigestedService = screenDigestedService;
         this.eventFactory = eventFactory;
     }
     $onInit() {
         this.searchMode = true;
+        this.showTransition = false;
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
+        this._subscribeOnTransitions();
     }
 
     $onDestroy() {
         this._miniModeChangedSubscription.remove();
+    }
+
+    _subscribeOnTransitions() {
+        this.$transitions.onStart({}, transitionStart);
+        let self = this;
+
+        function transitionStart(transitions) {
+            if (!self.screenDigestedService.miniMode) {
+                return;
+            }
+            self.showTransition = true;
+            transitions.promise.finally((transitionEnd));
+        }
+
+        function transitionEnd() {
+            self.showTransition = false;
+        }
     }
 
     _miniModeChanged() {

@@ -35,7 +35,7 @@ export class ExceptionHandlerService {
         //     return;
         // }
 
-        this.notificationService.error(exception);
+        this.notificationService.error(exception, "Error");
         this.$log.error(exception, ', cause:', cause);
     }
 }

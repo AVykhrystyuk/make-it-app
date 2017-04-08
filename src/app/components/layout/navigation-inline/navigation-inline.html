@@ -1,21 +1,26 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="menu-toggler visible-xs">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="nav navbar-nav navbar-left fa-list">
                 <li ng-click="$ctrl.openMiniMenu()">
-                    <a mi-glyphicon="align-justify"></a>
+                    <a>
+                        <fa fw name="bars"></fa>
+                    </a>
                 </li>
             </ul>
         </div>
 
         <div class="navbar-header unselectable hidden-xs">
-            <a class="navbar-brand" href="#" mi-glyphicon="check"> MakeIt</a>
+            <a class="navbar-brand">
+                <fa fw name="check-square-o"></fa> MakeIt</a>
         </div>
 
         <div class="pull-left navbar-action">
-            <ul class="nav navbar-nav hidden-xs">
+            <ul class="nav navbar-nav hidden-xs fa-list">
                 <li ng-click="$ctrl.toggleSearchVisibility()">
-                    <a ng-class="{'toggled': $ctrl.searchMode}" mi-glyphicon="{{$ctrl.searchMode ? 'plus' : 'search'}}"></a>
+                    <a>
+                        <fa fw name="{{$ctrl.searchMode ? 'plus' : 'search'}}"></fa>
+                    </a>
                 </li>
             </ul>
             <div class="components">
@@ -24,10 +29,12 @@
             </div>
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li class="hidden-xxs"><a href="#"><strong>AV</strong></a></li>
+        <ul class="nav navbar-nav navbar-right fa-list">
+            <li class="initials hidden-xxs"><a href="#"><strong>AV</strong></a></li>
             <li>
-                <a href="#" mi-glyphicon="cog"></a>
+                <a>
+                    <fa fw name="cog" spin="{{ $ctrl.showTransition }}" alt="settings"></fa>
+                </a>
             </li>
         </ul>
     </div>

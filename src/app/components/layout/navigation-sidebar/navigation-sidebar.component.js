@@ -13,19 +13,19 @@ class Controller {
     $onInit() {
         this.items = [{
             state: 'today',
-            glyphicon: 'bell',
+            icon: 'bell',
             text: 'Today'
         }, {
             state: 'tommorow',
-            glyphicon: 'screenshot',
+            icon: 'calendar-check-o',
             text: 'Tommorow'
         }, {
             state: 'next7Days',
-            glyphicon: 'calendar',
+            icon: 'calendar',
             text: 'Next 7 days'
         }, {
             state: 'later',
-            glyphicon: 'road',
+            icon: 'road',
             text: 'Later'
         }];
 
