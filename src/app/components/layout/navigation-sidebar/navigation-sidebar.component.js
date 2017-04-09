@@ -55,7 +55,7 @@ class Controller {
 export const NavigationSidebarComponent = {
     __name__: 'navigationSidebar',
     bindings: {
-        isMenuOpen: '<',
+        isMiniMenuOpen: '<',
         onMiniMenuClosed: '&'
     },
     template,

@@ -10,7 +10,7 @@ class Controller {
         this._updateMiniMode();
     }
     $onInit() {
-        this.isMenuOpen = false;
+        this.isMiniMenuOpen = false;
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._updateMiniMode());
     }
 
@@ -20,17 +20,17 @@ class Controller {
 
     _updateMiniMode() {
         this.miniMode = this.screenDigestedService.miniMode;
-        if (!this.miniMode && this.isMenuOpen) {
-            this.isMenuOpen = false;
+        if (!this.miniMode && this.isMiniMenuOpen) {
+            this.isMiniMenuOpen = false;
         }
     }
 
     onOpenMiniMenu({}) {
-        this.isMenuOpen = true;
+        this.isMiniMenuOpen = true;
     }
 
     onCloseMiniMenu({}) {
-        this.isMenuOpen = false;
+        this.isMiniMenuOpen = false;
     }
 }
 

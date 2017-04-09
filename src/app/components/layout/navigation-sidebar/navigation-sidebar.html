@@ -1,9 +1,10 @@
-<aside class="animated unselectable" ng-class="{'open': $ctrl.isMenuOpen}">
+<aside class="animated unselectable" ng-class="{'open': $ctrl.isMiniMenuOpen}">
     <div class="close-menu-holder" ng-click="$ctrl.hideMiniMenu()">
-        <a class="close-menu"><fa fw name="times"></fa> Close menu</a>
+        <a class="close-menu">
+            <fa fw name="times"></fa> Close menu</a>
     </div>
     <menu class="nav nav-pills nav-stacked">
-        <li ng-repeat="item in $ctrl.items">
+        <li ng-repeat="item in $ctrl.items" ng-class="{'disabled-item': item.inTransition}">
             <a ui-sref="{{item.state}}" ui-sref-active="active" ng-click="$ctrl.hideMiniMenu()">
                 <fa fw name="{{item.icon}}"></fa>&nbsp; {{item.text}} &nbsp;
                 <fa class="fa-pulse" ng-show="item.inTransition" fw name="spinner"></fa>
@@ -11,4 +12,4 @@
         </li>
     </menu>
 </aside>
-<div class="menu-overlay" ng-show="$ctrl.isMenuOpen" ng-click="$ctrl.hideMiniMenu()"></div>
+<div class="menu-overlay" ng-show="$ctrl.isMiniMenuOpen" ng-click="$ctrl.hideMiniMenu()"></div>

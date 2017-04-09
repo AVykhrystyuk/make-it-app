@@ -13,9 +13,9 @@ aside {
         .fa.fa-pulse {
             font-size: 1.1em;
         }
+        &:focus,
         &:hover,
-        &.active,
-        &:focus {
+        &.active {
             background-color: #fcf8e3;
             padding: 9px 14px;
             color: #c09853;
@@ -37,6 +37,12 @@ aside {
             text-decoration: none;
             display: block;
             padding: 10px 15px;
+        }
+    }
+    li.disabled-item {
+        cursor: not-allowed;
+        a {
+            pointer-events: none;
         }
     }
 }
