@@ -1,3 +1,4 @@
 -focused blue border
 -input[search] clear button
 -pages.github.com
+-take a look at http://chieffancypants.github.io/angular-loading-bar

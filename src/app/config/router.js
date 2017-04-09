@@ -37,9 +37,12 @@ export class Router {
             name: 'tommorow',
             url: '/tommorow',
             component: 'tommorow',
-            // resolve: {
-            //     //todoData: TodoService => TodoService.getTodos()
-            // }
+            resolve: {
+                todaysData: todayService => {
+                    'ngInject';
+                    return todayService.getTodaysData();
+                }
+            }
         }, {
             name: 'next7Days',
             url: '/next-7-days',

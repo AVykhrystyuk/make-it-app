@@ -39,15 +39,3 @@ const appModule = angular.module('makeItApp', [
 new Registrater(appModule)
     .registerComponents([AppComponent])
     .registerFactories([$exceptionHandlerFactory]);
-
-appModule.run(($rootScope, $transitions, $state) => {
-    'ngInject';
-
-    // $state.defaultErrorHandler(function(err1, err2, err3) {
-    //     console.log('defaultErrorHandler', err1, err2, err3);
-    // });
-
-    // $transitions.onError({}, function(transition) {
-    //     console.log('Transition erred!', transition.error());
-    // });
-});

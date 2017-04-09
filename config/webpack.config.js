@@ -69,7 +69,7 @@ function getAliases() {
         common: path.resolve('src/app/common'),
         auth: path.resolve('src/app/common/auth'),
         utils: path.resolve('src/app/common/utils'),
-        ngFontAwesome$: path.resolve('src/vendor/angular-fontawesome.js'),
+        ngFontAwesome$: path.resolve('src/vendor/angular/angular-fontawesome.js'),
     };
 }
 

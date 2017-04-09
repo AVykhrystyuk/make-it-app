@@ -29,32 +29,26 @@ class Controller {
             text: 'Later'
         }];
 
-        this.items.forEach(item => this._onEachItem(item));
+        this.$transitions.onStart({}, t => this._onTransitionStart(t));
     }
 
-    // $onChanges(changes) {
-    //     if (changes.isMenuOpen) {
-    //     }
-    // }
+    _onTransitionStart(transitions) {
+        let nextState = transitions.to();
+        let transitionItem = this.items.find(i => i.state === nextState.name);
+        if (!transitionItem) {
+            return;
+        }
 
+        transitionItem.inTransition = true;
+
+        let onTransitionEnd = () => {
+            transitionItem.inTransition = false;
+        };
+        transitions.promise.then(onTransitionEnd, onTransitionEnd);
+    }
+    
     hideMiniMenu() {
         this.onMiniMenuClosed(this.eventFactory.empty());
-    }
-
-    _onEachItem(item) {
-        let criteria = {
-            to: `${item.state}.**`
-        };
-        this.$transitions.onStart(criteria, transitionStart);
-
-        function transitionStart(transitions) {
-            item.inTransition = true;
-            transitions.promise.finally(transitionEnd);
-        }
-
-        function transitionEnd() {
-            item.inTransition = false;
-        }
     }
 }
 

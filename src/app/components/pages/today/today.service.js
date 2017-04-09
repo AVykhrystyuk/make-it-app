@@ -13,7 +13,7 @@ export class TodayService {
     getTodaysData() {
         var deferred = this.$q.defer();
 
-        setTimeout(() => deferred.resolve('Hello, from TodayService!'), 1000);
+        setTimeout(() => deferred.resolve('Hello, from TodayService!'), 3000);
 
         return deferred.promise;
     }

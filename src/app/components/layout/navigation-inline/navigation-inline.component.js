@@ -14,28 +14,23 @@ class Controller {
         this.searchMode = true;
         this.showTransition = false;
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
-        this._subscribeOnTransitions();
+        this.$transitions.onStart({}, t => this._onTransitionStart(t));
     }
 
     $onDestroy() {
         this._miniModeChangedSubscription.remove();
     }
 
-    _subscribeOnTransitions() {
-        this.$transitions.onStart({}, transitionStart);
-        let self = this;
-
-        function transitionStart(transitions) {
-            if (!self.screenDigestedService.miniMode) {
-                return;
-            }
-            self.showTransition = true;
-            transitions.promise.finally((transitionEnd));
+    _onTransitionStart(transitions) {
+        if (!this.screenDigestedService.miniMode) {
+            return;
         }
-
-        function transitionEnd() {
-            self.showTransition = false;
-        }
+        this.showTransition = true;
+ 
+        let onTransitionEnd = () => {
+            this.showTransition = false;
+        };
+        transitions.promise.then(onTransitionEnd, onTransitionEnd);
     }
 
     _miniModeChanged() {

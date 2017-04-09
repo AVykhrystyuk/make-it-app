@@ -11,6 +11,9 @@ import {
     NavigationSidebarComponent
 } from './navigation-sidebar';
 
+import {
+    StateLoadIndicatorComponent
+} from './state-load-indicator';
 
 const ngModule = angular.module('makeItApp.components.layout', [])
     .constant("screenSizeLimits", {
@@ -18,6 +21,6 @@ const ngModule = angular.module('makeItApp.components.layout', [])
     });
 
 new Registrater(ngModule)
-    .registerComponents([NavigationInlineComponent, NavigationSidebarComponent]);
+    .registerComponents([NavigationInlineComponent, NavigationSidebarComponent, StateLoadIndicatorComponent]);
 
 export default ngModule.name;
