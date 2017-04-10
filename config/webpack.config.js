@@ -166,6 +166,8 @@ function getAllModuleRules(options) {
 }
 
 function getPlugins(options) {
+    let NODE_ENV = options.isProd ? 'production' : 'development';
+
     let plugins = [
         new webpack.optimize.CommonsChunkPlugin({
             names: ["prepack", "vendor"],
@@ -173,7 +175,12 @@ function getPlugins(options) {
         }),
         new CopyWebpackPlugin([{
             from: './copy_to_public'
-        }])
+        }]),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(NODE_ENV)
+            }
+        })
     ];
 
     if (options.isProd) {

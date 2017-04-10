@@ -3,7 +3,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
-import toastr from 'angular-toastr';
 import ngFontawesome from 'ngFontAwesome';
 
 import {
@@ -25,7 +24,6 @@ import DirectivesModule from './directives/module.js';
 
 const appModule = angular.module('makeItApp', [
         ngAnimate,
-        toastr,
         uiRouter,
         ngFontawesome,
 

@@ -5,14 +5,14 @@ import {
 } from 'auth';
 
 export class Router {
-    constructor($stateProvider, $urlRouterProvider) {
-        this.$stateProvider = $stateProvider;
-        this.$urlRouterProvider = $urlRouterProvider;
-    }
-
     static configure($stateProvider, $urlRouterProvider) {
         'ngInject';
         new Router($stateProvider, $urlRouterProvider).registerRoutes();
+    }
+
+    constructor($stateProvider, $urlRouterProvider) {
+        this.$stateProvider = $stateProvider;
+        this.$urlRouterProvider = $urlRouterProvider;
     }
 
     registerRoutes() {

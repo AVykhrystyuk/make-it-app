@@ -1,5 +1,6 @@
 'use strict';
 
+import '../styles.less';
 import template from './today.html';
 
 class Сontroller {
