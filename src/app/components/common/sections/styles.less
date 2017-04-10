@@ -1,13 +1,24 @@
+@import "~components/mixins.less";
+
 .sub-section-header.warning {
     color: #dd4b39;
 }
 
 .sub-section-header {
+    .bottom-bordered();
     font-size: 14px;
     font-weight: bold;
     color: #202020;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: .5em;
-    //margin-right: 28px;
+    padding-bottom: .5em; //margin-right: 28px;
     margin-bottom: 0;
+}
+
+ul.task-list {
+    margin: 0;
+    padding: 0;
+    li {
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+    }
 }

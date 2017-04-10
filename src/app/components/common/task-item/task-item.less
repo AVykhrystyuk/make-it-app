@@ -1,0 +1,30 @@
+@import "~components/mixins.less";
+.task-item {
+    margin: 10px 0;
+    @checker-width: 30px;
+    .checker-contol {
+        input[type="radio"] {
+            @radio-size: 18px;
+            height: @radio-size;
+            width: @radio-size;
+            margin: 0 auto;
+        }
+        width: @checker-width; //background: red;
+        float: left;
+    }
+    .task-content {
+        .bottom-bordered();
+        padding-bottom: .5em;
+        margin-left: @checker-width;
+        font-size: 14px;
+    }
+    .action-panel {
+        float: right;
+        //background: yellow;
+        .date {
+            &.warning {
+                border-bottom: 1px solid #d8422d !important;
+            }
+        }
+    }
+}

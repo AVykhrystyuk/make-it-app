@@ -6,6 +6,7 @@ import Registrater from 'registrater';
 import {
     SearchInlineComponent,
     QuickTaskAddComponent,
+    TaskItemComponent,
     OverdueSectionComponent,
     DoneSectionComponent
 } from '.';
@@ -13,6 +14,12 @@ import {
 const ngModule = angular.module('makeItApp.components.common', []);
 
 new Registrater(ngModule)
-    .registerComponents([QuickTaskAddComponent, SearchInlineComponent, OverdueSectionComponent, DoneSectionComponent]);
+    .registerComponents([
+        QuickTaskAddComponent,
+        SearchInlineComponent,
+        TaskItemComponent,
+        OverdueSectionComponent,
+        DoneSectionComponent
+    ]);
 
 export default ngModule.name;

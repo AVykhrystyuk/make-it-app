@@ -67,6 +67,7 @@ function getAliases() {
     return {
         registrater$: path.resolve('src/app/common/registrater.js'),
         common: path.resolve('src/app/common'),
+        components: path.resolve('src/app/components'),
         auth: path.resolve('src/app/common/auth'),
         utils: path.resolve('src/app/common/utils'),
         ngFontAwesome$: path.resolve('src/vendor/angular/angular-fontawesome.js'),

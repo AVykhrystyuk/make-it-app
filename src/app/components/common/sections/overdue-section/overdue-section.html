@@ -1,6 +1,10 @@
 <section class="row">
     <div class="col-md-12">
         <h4 class="sub-section-header warning">Overdue</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus laboriosam, aliquid nulla eveniet fugiat odit amet. Id qui quo, vitae quisquam voluptatum quidem pariatur temporibus officiis modi odit sed! Itaque?</h1>
+        <ul class="task-list"> 
+            <li ng-repeat="task in $ctrl.tasks">
+                <task-item task="task"></task-item>
+            </li>
+        </ul>
     </div>
 </section>

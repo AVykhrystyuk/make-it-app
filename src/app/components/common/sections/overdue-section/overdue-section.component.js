@@ -7,11 +7,14 @@ class Сontroller {
     constructor() {
         'ngInject';
     }
-    $onInit() {}
+    $onInit() { }
 }
 
 export const OverdueSectionComponent = {
     __name__: 'overdueSection',
     template,
-    controller: Сontroller
+    controller: Сontroller,
+    bindings: {
+        tasks: '<'
+    }
 };

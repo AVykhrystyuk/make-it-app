@@ -1,6 +1,6 @@
 <h1 class="view-header">Today</h1>
-<overdue-section></overdue-section>
+<overdue-section ng-show="$ctrl.hasOverdueTasks()" tasks="$ctrl.overdueTasks"></overdue-section>
 
-<today-section todays-data="$ctrl.todaysData"></today-section>
+<today-section></today-section>
 
 <done-section></done-section>
