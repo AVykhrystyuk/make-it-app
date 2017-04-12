@@ -1,4 +1,7 @@
-<div ng-class="{'mini-mode': $ctrl.miniMode}">
+<div ng-class="{'mini-mode': $ctrl.miniMode}" ng-model-options="{
+  'updateOn': 'default blur',
+  'debounce': { 'default': 200, 'blur': 0 }
+}">
     <header>
         <navigation-inline on-mini-menu-open="$ctrl.onOpenMiniMenu($event);"></navigation-inline>
     </header>

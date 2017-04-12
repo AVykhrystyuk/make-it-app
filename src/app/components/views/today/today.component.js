@@ -10,10 +10,10 @@ class Сontroller {
     $onInit() {
         this.overdueTasks = [{
             id: 1,
-            text: 'Task 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+            text: 'Task 1: < Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }, {
             id: 2,
-            text: 'Task 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+            text: 'Task 2: > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }];
     }
 

@@ -1,11 +1,28 @@
-<section class="task-item">
+<section class="readonly-contol-group" ng-hide="$ctrl.isEditable">
     <div class="checker-contol">
         <input type="radio">
     </div>
     <div class="action-panel">
         <span class="date warning">Yesterday</span>
     </div>
-    <div class="task-content">
+    <div class="task-content" ng-click="$ctrl.beginEdit()">
         <span ng-bind="$ctrl.task.text"></span>
     </div>
+</section>
+<section class="editable-contol-group" ng-show="$ctrl.isEditable" ng-model-options="{
+  'updateOn': 'default blur',
+  'debounce': { 'default': 0, 'blur': 0 }
+}">
+    <form ng-submit="$ctrl.saveEdit()">
+        <div class="editor-panel">
+            <div class="richtext-editor-wrapper">
+                <div tabindex="1" class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" move-caret-to-end-on-change="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
+            </div>
+            <div class="date">9 Apr</div>
+        </div>
+        <div class="button-panel">
+            <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa name="floppy-o"></fa> Save</button>
+            <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()"><fa name="ban"></fa> Cancel</button>
+        </div>
+    </form>
 </section>

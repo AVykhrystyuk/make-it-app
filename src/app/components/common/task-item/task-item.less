@@ -1,30 +1,83 @@
 @import "~components/mixins.less";
-.task-item {
+task-item {
     margin: 10px 0;
-    @checker-width: 30px;
-    .checker-contol {
-        input[type="radio"] {
-            @radio-size: 18px;
-            height: @radio-size;
-            width: @radio-size;
-            margin: 0 auto;
-        }
-        width: @checker-width; //background: red;
-        float: left;
-    }
-    .task-content {
-        .bottom-bordered();
-        padding-bottom: .5em;
-        margin-left: @checker-width;
-        font-size: 14px;
-    }
-    .action-panel {
-        float: right;
-        //background: yellow;
-        .date {
-            &.warning {
-                border-bottom: 1px solid #d8422d !important;
+    display: block;
+    @editable-cursor: text;
+    .readonly-contol-group {
+        @checker-width: 30px;
+        .checker-contol {
+            input[type="radio"] {
+                @radio-size: 18px;
+                height: @radio-size;
+                width: @radio-size;
+                margin: 0 auto;
             }
+            width: @checker-width;
+            float: left;
+        }
+        .task-content {
+            .bottom-bordered();
+            padding-bottom: .5em;
+            margin-left: @checker-width;
+            font-size: 14px;
+            cursor: @editable-cursor;
+        }
+        .action-panel {
+            float: right;
+            margin-left: 12px;
+            .date {
+                &.warning {
+                    border-bottom: 1px solid #d8422d !important;
+                }
+            }
+        }
+    }
+    .editable-contol-group {
+        .editor-panel {
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            @date-block-width: 70px;
+            .richtext-editor-wrapper {
+                margin-right: @date-block-width;
+            }
+            .richtext-editor {
+                animation-name: fadeIn;
+                animation-duration: 80ms;
+                border: 0;
+                width: 100%;
+                resize: none;
+                padding: 6px 6px 0 6px;
+                outline: 0;
+                padding-bottom: 4px !important;
+                height: auto !important;
+                line-height: 19px;
+                -webkit-touch-callout: text !important;
+                user-select: text !important;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                word-break: break-word;
+                font-size: 14px;
+                min-height: 21px;
+                cursor: @editable-cursor;
+                &:empty:not(:focus):before {
+                    content: attr(placeholder);
+                    color: grey;
+                    opacity: 0.5;
+                }
+            }
+            .date {
+                position: absolute;
+                padding: 5px;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: @date-block-width;
+                border-left: 1px solid #ddd;
+            }
+        }
+        .button-panel {
+            padding-top: 4px;
         }
     }
 }

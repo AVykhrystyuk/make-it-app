@@ -34,7 +34,7 @@ function makeWebpackConfig(options) {
     config.entry = {
         app: './app/app.module.js',
         vendor: './vendor',
-        assets: './assets'
+        assets: ['babel-polyfill', './assets']
     };
 
     config.output = {
@@ -135,7 +135,11 @@ function getAllModuleRules(options) {
         exclude: /node_modules/,
         loader: "babel-loader",
         options: {
-            presets: ["es2015-native-modules"],
+            presets: [
+                ["es2015", {
+                    "modules": false
+                }]
+            ],
             plugins: ["angularjs-annotate"]
         }
     }, {

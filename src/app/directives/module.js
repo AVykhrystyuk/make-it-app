@@ -4,12 +4,15 @@ import angular from 'angular';
 import Registrater from 'registrater';
 
 import {
-    GlyphiconDirectiveFactory
-} from './mi-glyphicon';
-
+    GlyphiconDirectiveFactory,
+    ContentEditableDirectiveFactory,
+    EnterKeyPressDirectiveFactory,
+    EscKeyPressDirectiveFactory
+} from '.';
 
 const ngModule = angular.module('makeItApp.directives', []);
+    
 new Registrater(ngModule)
-    .registerDirectives([GlyphiconDirectiveFactory]);
+    .registerDirectives([GlyphiconDirectiveFactory, ContentEditableDirectiveFactory, EnterKeyPressDirectiveFactory, EscKeyPressDirectiveFactory]);
 
 export default ngModule.name;
