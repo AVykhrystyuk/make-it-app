@@ -1,4 +1,4 @@
-<section class="readonly-contol-group" ng-hide="$ctrl.isEditable">
+<div class="readonly-contol-group" ng-if="!$ctrl.isEditable">
     <div class="checker-contol">
         <input type="radio">
     </div>
@@ -8,10 +8,10 @@
         </div>
         <span class="text" ng-bind="$ctrl.task.text"></span>
     </div>
-</section>
-<section class="editable-contol-group" ng-show="$ctrl.isEditable" ng-model-options="{
-  'updateOn': 'default blur',
-  'debounce': { 'default': 0, 'blur': 0 }
+</div>
+<div class="editable-contol-group" ng-if="$ctrl.isEditable" ng-model-options="{
+  'updateOn': 'default',
+  'debounce': { 'default': 0 }
 }">
     <form ng-submit="$ctrl.saveEdit()">
         <div class="editor-panel">
@@ -25,4 +25,4 @@
             <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()"><fa name="ban"></fa> Cancel</button>
         </div>
     </form>
-</section>
+</div>

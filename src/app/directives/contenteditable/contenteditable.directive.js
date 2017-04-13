@@ -35,8 +35,6 @@ export class ContentEditableDirective {
         $element.on('blur keyup change', () => {
             $scope.$evalAsync(updateModel);
         });
-
-        updateModel();
     }
 
     _updateView($element, $attrs, ngModel) {
