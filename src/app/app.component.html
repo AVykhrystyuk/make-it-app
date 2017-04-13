@@ -10,7 +10,7 @@
         <navigation-sidebar on-mini-menu-closed="$ctrl.onCloseMiniMenu($event);" is-mini-menu-open="$ctrl.isMiniMenuOpen"></navigation-sidebar>
 
         <main>
-            <state-load-indicator></state-load-indicator>
+            <state-load-indicator default-loading-message="'Content is loading, please wait...'"></state-load-indicator>
             <div ui-view class="fade-in"></div>
         </main>
     </div>

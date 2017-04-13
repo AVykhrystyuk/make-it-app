@@ -26,7 +26,7 @@ class Сontroller {
             };
         } else {
             let toState = transitions.to();
-            this.initialTransitionMessage = toState.initialLoadingMessage || 'Content is loading, please wait...';
+            this.initialTransitionMessage = toState.initialLoadingMessage || this.defaultLoadingMessage || 'Content is loading, please wait...';
             this.inInitialTransition = true;
             onTransitionEnd = () => {
                 this.inInitialTransition = false;
@@ -40,5 +40,8 @@ class Сontroller {
 export const StateLoadIndicatorComponent = {
     __name__: 'stateLoadIndicator',
     template,
-    controller: Сontroller
+    controller: Сontroller,
+    bindings: {
+        defaultLoadingMessage: '<'
+    }
 };
