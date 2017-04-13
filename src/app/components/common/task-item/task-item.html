@@ -16,7 +16,7 @@
     <form ng-submit="$ctrl.saveEdit()">
         <div class="editor-panel">
             <div class="richtext-editor-wrapper">
-                <div tabindex="1" class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" move-caret-to-end-on-change="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
+                <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true" contenteditable-trim-text="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>
             <div class="date">9 Apr</div>
         </div>

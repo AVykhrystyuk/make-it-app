@@ -10,7 +10,9 @@ export class ContentEditableDirective {
 
         this.restrict = 'A';
         this.require = '?ngModel';
-        this.caretAtEndModeAttrName = directiveName + "CaretAtEndMode"
+
+        this.trimTextAttrName = `${directiveName}TrimText`;
+        this.moveCaretToEndOnChangeAttrName = `${directiveName}MoveCaretToEndOnChange`;
     }
 
     link($scope, $element, $attrs, ngModel) {
@@ -41,7 +43,7 @@ export class ContentEditableDirective {
         let text = ngModel.$viewValue || '';
         $element.text(text);
 
-        if ($attrs.moveCaretToEndOnChange === "true") {
+        if (this._isMoveCaretToEndOnChangeOptionSelected($attrs)) {
             this.$timeout(() => {
                 this._placeCaretAtEnd($element, text);
             });
@@ -50,6 +52,10 @@ export class ContentEditableDirective {
 
     _updateModel($element, $attrs, ngModel) {
         let text = $element.text();
+        if (text && this._isTrimTextOptionSelected($attrs)) {
+            text = text.trim();
+        }
+
         ngModel.$setViewValue(text);
 
         // if (text === '') {
@@ -75,6 +81,14 @@ export class ContentEditableDirective {
         selection.removeAllRanges();
         selection.addRange(range);
         element.focus();
+    }
+
+    _isTrimTextOptionSelected($attrs) {
+        return $attrs[this.trimTextAttrName] === "true";
+    }
+
+    _isMoveCaretToEndOnChangeOptionSelected($attrs) {
+        return $attrs[this.moveCaretToEndOnChangeAttrName] === "true";
     }
 }
 
