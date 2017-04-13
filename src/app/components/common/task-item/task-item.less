@@ -4,7 +4,6 @@ task-item {
     display: block;
     @editable-cursor: text;
     .readonly-contol-group {
-        @checker-width: 30px;
         .checker-contol {
             input[type="radio"] {
                 @radio-size: 18px;
@@ -12,27 +11,27 @@ task-item {
                 width: @radio-size;
                 margin: 0 auto;
             }
-            width: @checker-width;
+            width: 30px;
             float: left;
         }
         .task-content {
             .bottom-bordered();
             padding-bottom: .5em;
-            margin-left: @checker-width;
             font-size: 14px;
             cursor: @editable-cursor;
+            overflow: hidden;
             .text {
-                overflow-wrap: break-word;
                 word-wrap: break-word;
-                word-break: break-word;
+                word-break: break-all;
+                overflow-wrap: break-word;
             }
-        }
-        .action-panel {
-            float: right;
-            margin-left: 12px;
-            .date {
-                &.warning {
-                    border-bottom: 1px solid #d8422d !important;
+            .action-panel {
+                float: right;
+                margin-left: 12px;
+                .date {
+                    &.warning {
+                        border-bottom: 1px solid #d8422d !important;
+                    }
                 }
             }
         }
@@ -61,7 +60,7 @@ task-item {
                 user-select: text !important;
                 overflow-wrap: break-word;
                 word-wrap: break-word;
-                word-break: break-word;
+                word-break: break-all;
                 font-size: 14px;
                 min-height: 21px;
                 cursor: @editable-cursor;
