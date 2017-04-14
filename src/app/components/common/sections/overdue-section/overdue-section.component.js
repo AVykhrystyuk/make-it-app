@@ -4,10 +4,16 @@ import '../styles.less';
 import template from './overdue-section.html';
 
 class Сontroller {
-    constructor() {
+    constructor(eventFactory) {
         'ngInject';
+        this.eventFactory = eventFactory;
     }
-    $onInit() { }
+
+    $onInit() {}
+
+    onTaskItemChanged(event) {
+        this.onTaskChanged(this.eventFactory.create(event));
+    }
 }
 
 export const OverdueSectionComponent = {
@@ -15,6 +21,7 @@ export const OverdueSectionComponent = {
     template,
     controller: Сontroller,
     bindings: {
-        tasks: '<'
+        tasks: '<',
+        onTaskChanged: '&'
     }
 };

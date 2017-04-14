@@ -1,5 +1,5 @@
 <h1 class="view-header">Today</h1>
-<overdue-section ng-show="$ctrl.hasOverdueTasks()" tasks="$ctrl.overdueTasks"></overdue-section>
+<overdue-section ng-show="$ctrl.hasOverdueTasks()" tasks="$ctrl.overdueTasks" on-task-changed="$ctrl.onOverdueTaskChanged($event);"></overdue-section>
 
 <today-section></today-section>
 

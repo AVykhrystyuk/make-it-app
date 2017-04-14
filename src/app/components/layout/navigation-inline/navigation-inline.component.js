@@ -26,7 +26,7 @@ class Controller {
             return;
         }
         this.showTransition = true;
- 
+
         let onTransitionEnd = () => {
             this.showTransition = false;
         };
@@ -52,9 +52,9 @@ class Controller {
 
 export const NavigationInlineComponent = {
     __name__: 'navigationInline',
+    template,
+    controller: Controller,
     bindings: {
         onMiniMenuOpen: '&'
     },
-    template,
-    controller: Controller
 };

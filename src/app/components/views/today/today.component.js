@@ -23,8 +23,18 @@ class Сontroller {
         }
     }
 
-    hasOverdueTasks(){
+    hasOverdueTasks() {
         return this.overdueTasks && this.overdueTasks.length > 0;
+    }
+
+    onOverdueTaskChanged({
+        task
+    }) {
+        //TODO: move to service and add delay (promise)
+        let overdueTask = this.overdueTasks.find(t => t.id === task.id);
+        if (overdueTask) {
+            Object.assign(overdueTask, task);
+        }
     }
 }
 

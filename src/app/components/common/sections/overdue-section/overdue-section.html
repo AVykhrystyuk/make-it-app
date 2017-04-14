@@ -3,7 +3,7 @@
         <h4 class="sub-section-header warning">Overdue</h4>
         <ul class="task-list"> 
             <li ng-repeat="task in $ctrl.tasks">
-                <task-item task="task"></task-item>
+                <task-item task="task" on-task-changed="$ctrl.onTaskItemChanged($event);"></task-item>
             </li>
         </ul>
     </div>

@@ -3,14 +3,28 @@
 import './task-item.less';
 import template from './task-item.html';
 
+const beginEditTaskEventName = 'taskItem: beginEditTask';
+
 class Сontroller {
-    constructor($document, $window) {
+    constructor($document, $window, $rootScope, eventFactory) {
         'ngInject';
         this.$document = $document;
         this.$window = $window;
+        this.$rootScope = $rootScope;
+        this.eventFactory = eventFactory;
     }
+
     $onInit() {
         this.isEditable = false;
+        this.beginEditTaskEventCleanUp = this.$rootScope.$on(beginEditTaskEventName, (event, args) => {
+            if (args.taskId !== this.task.id) {
+                this.cancelEdit();
+            }
+        });
+    }
+
+    $onDestroy() {
+        this.beginEditTaskEventCleanUp();
     }
 
     $onChanges(changes) {
@@ -22,6 +36,9 @@ class Сontroller {
     beginEdit() {
         this.editableTask = Object.assign({}, this.task);
         this.isEditable = true;
+        this.$rootScope.$emit(beginEditTaskEventName, {
+            taskId: this.task.id
+        })
     }
 
     cancelEdit() {
@@ -31,7 +48,10 @@ class Сontroller {
 
     saveEdit() {
         if (this.editableTask && this.editableTask.text) {
-            Object.assign(this.task, this.editableTask);
+            this.onTaskChanged(this.eventFactory.create({
+                task: this.editableTask
+            }))
+            //Object.assign(this.task, this.editableTask);
         }
         this.cancelEdit();
     }
