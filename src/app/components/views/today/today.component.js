@@ -4,17 +4,12 @@ import '../styles.less';
 import template from './today.html';
 
 class Сontroller {
-    constructor() {
+    constructor(todayService) {
         'ngInject';
+        this.todayService = todayService;
     }
     $onInit() {
-        this.overdueTasks = [{
-            id: 1,
-            text: 'Task 1: < Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
-        }, {
-            id: 2,
-            text: 'Task 2: > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
-        }];
+        this.overdueTasks = this.todaysData.overdueTasks;
     }
 
     $onChanges(changes) {
@@ -30,11 +25,8 @@ class Сontroller {
     onOverdueTaskChanged({
         task
     }) {
-        //TODO: move to service and add delay (promise)
-        let overdueTask = this.overdueTasks.find(t => t.id === task.id);
-        if (overdueTask) {
-            Object.assign(overdueTask, task);
-        }
+        let promise = this.todayService.updateOverdueTask(task);
+        return promise;
     }
 }
 

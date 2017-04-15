@@ -5,15 +5,16 @@ export class LaterService {
         return 'laterService';
     }
 
-    constructor($q) {
+    constructor($timeout, $q) {
         'ngInject';
+        this.$timeout = $timeout;
         this.$q = $q;
     }
 
     getLaterData() {
-        var deferred = this.$q.defer();
+        let deferred = this.$q.defer();
 
-        setTimeout(() => deferred.resolve('Hello, from LaterService!'), 1000);
+        this.$timeout(() => deferred.resolve('Hello, from LaterService!'), 1000);
 
         return deferred.promise;
     }

@@ -21,7 +21,7 @@
             <div class="date">9 Apr</div>
         </div>
         <div class="button-panel">
-            <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa name="floppy-o"></fa> Save</button>
+            <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>
             <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()"><fa name="ban"></fa> Cancel</button>
         </div>
     </form>

@@ -16,6 +16,7 @@ class Сontroller {
 
     $onInit() {
         this.isEditable = false;
+        this.saving = false;
         this.beginEditTaskEventCleanUp = this.$rootScope.$on(beginEditTaskEventName, (event, args) => {
             if (args.taskId !== this.task.id) {
                 this.cancelEdit();
@@ -29,7 +30,7 @@ class Сontroller {
 
     $onChanges(changes) {
         if (changes.task) {
-            //this.task = Object.assign({}, this.task);
+            this.task = Object.assign({}, this.task);
         }
     }
 
@@ -48,12 +49,18 @@ class Сontroller {
 
     saveEdit() {
         if (this.editableTask && this.editableTask.text) {
+            this.saving = true;
             this.onTaskChanged(this.eventFactory.create({
-                task: this.editableTask
-            }))
-            //Object.assign(this.task, this.editableTask);
+                    task: this.editableTask
+                }))
+                .then(task => {
+                    Object.assign(this.task, task);
+                    this.cancelEdit();
+                })
+                .finally(task => {
+                    this.saving = false;
+                });
         }
-        this.cancelEdit();
     }
 }
 

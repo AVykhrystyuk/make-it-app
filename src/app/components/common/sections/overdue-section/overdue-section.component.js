@@ -12,7 +12,7 @@ class Сontroller {
     $onInit() {}
 
     onTaskItemChanged(event) {
-        this.onTaskChanged(this.eventFactory.create(event));
+        return this.onTaskChanged(this.eventFactory.create(event));
     }
 }
 
