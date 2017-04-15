@@ -25,8 +25,7 @@ class Сontroller {
     onOverdueTaskChanged({
         task
     }) {
-        let promise = this.todayService.updateOverdueTask(task);
-        return promise;
+        return this.todayService.updateOverdueTask(task);
     }
 }
 

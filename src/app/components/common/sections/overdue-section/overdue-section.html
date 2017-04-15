@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <h4 class="sub-section-header warning">Overdue</h4>
         <ul class="task-list"> 
-            <li ng-repeat="task in $ctrl.tasks">
-                <task-item task="task" on-task-changed="$ctrl.onTaskItemChanged($event);"></task-item>
+            <li ng-repeat="taskViewModel in $ctrl.taskViewModels">
+                <task-item task="taskViewModel.task" on-task-changed="$ctrl.onTaskItemChanged($event);" is-editable="taskViewModel.isEditable"></task-item>
             </li>
         </ul>
     </div>

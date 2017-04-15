@@ -1,15 +1,15 @@
-<div class="readonly-contol-group" ng-if="!$ctrl.isEditable">
+<div class="readonly-contol-group" ng-if="!$ctrl.isEditing">
     <div class="checker-contol">
         <input type="radio">
     </div>
-    <div class="task-content" ng-click="$ctrl.beginEdit()">
+    <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()">
         <div class="action-panel">
             <span class="date warning">Yesterday</span>
         </div>
         <span class="text" ng-bind="$ctrl.task.text"></span>
     </div>
 </div>
-<div class="editable-contol-group" ng-if="$ctrl.isEditable" ng-model-options="{
+<div class="editable-contol-group" ng-if="$ctrl.isEditing" ng-model-options="{
   'updateOn': 'default',
   'debounce': { 'default': 0 }
 }">
@@ -22,7 +22,7 @@
         </div>
         <div class="button-panel">
             <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>
-            <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()"><fa name="ban"></fa> Cancel</button>
+            <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()" ng-disabled="$ctrl.saving"><fa name="ban"></fa> Cancel</button>
         </div>
     </form>
 </div>

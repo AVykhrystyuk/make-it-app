@@ -3,7 +3,9 @@
 import './task-item.less';
 import template from './task-item.html';
 
-const beginEditTaskEventName = 'taskItem: beginEditTask';
+const eventNames = {
+    beginEditTaskRequest: 'taskItem: beginEditTask'
+};
 
 class Сontroller {
     constructor($document, $window, $rootScope, eventFactory) {
@@ -12,20 +14,25 @@ class Сontroller {
         this.$window = $window;
         this.$rootScope = $rootScope;
         this.eventFactory = eventFactory;
-    }
 
-    $onInit() {
-        this.isEditable = false;
+        this.isEditing = false;
         this.saving = false;
-        this.beginEditTaskEventCleanUp = this.$rootScope.$on(beginEditTaskEventName, (event, args) => {
+
+        this.beginEditTaskEventCleanUp = this.$rootScope.$on(eventNames.beginEditTaskRequest, (event, args) => {
             if (args.taskId !== this.task.id) {
-                this.cancelEdit();
+                args.promise = this.saveEdit();
             }
         });
     }
 
     $onDestroy() {
         this.beginEditTaskEventCleanUp();
+    }
+
+    $onInit() {
+        if (this.isEditable === undefined) {
+            this.isEditable = true;
+        }
     }
 
     $onChanges(changes) {
@@ -35,32 +42,62 @@ class Сontroller {
     }
 
     beginEdit() {
-        this.editableTask = Object.assign({}, this.task);
-        this.isEditable = true;
-        this.$rootScope.$emit(beginEditTaskEventName, {
-            taskId: this.task.id
-        })
+        if (!this.isEditable) {
+            return;
+        }
+
+        let args = {
+            taskId: this.task.id,
+            promise: null
+        };
+        this.$rootScope.$emit(eventNames.beginEditTaskRequest, args);
+        if (args.promise) {
+            args.promise.then(() => {
+                this._turnOnEditing();
+            });
+        } else {
+            this._turnOnEditing();
+        }
     }
 
     cancelEdit() {
-        this.editableTask = null;
-        this.isEditable = false;
+        this._turnOffEditing();
     }
 
     saveEdit() {
-        if (this.editableTask && this.editableTask.text) {
-            this.saving = true;
-            this.onTaskChanged(this.eventFactory.create({
-                    task: this.editableTask
-                }))
-                .then(task => {
-                    Object.assign(this.task, task);
-                    this.cancelEdit();
-                })
-                .finally(task => {
-                    this.saving = false;
-                });
+        if (this.saving) {
+            return;
         }
+
+        if (!this._editableTaskIsValid()) {
+            return;
+        }
+
+        this.saving = true;
+        return this.onTaskChanged(this.eventFactory.create({
+                task: this.editableTask
+            }))
+            .then(resultedTask => {
+                Object.assign(this.task, resultedTask);
+                this.cancelEdit();
+            })
+            .finally(resultedTask => {
+                this.saving = false;
+            });
+    }
+
+    _editableTaskIsValid() {
+        return this.editableTask && this.editableTask.text;
+    }
+
+    _turnOffEditing() {
+        this.editableTask = null;
+        this.isEditing = false;
+    }
+
+    _turnOnEditing() {
+        this.editableTask = Object.assign({}, this.task);
+        this.isEditing = true;
     }
 }
 
@@ -70,6 +107,7 @@ export const TaskItemComponent = {
     controller: Сontroller,
     bindings: {
         task: '<',
+        isEditable: '<',
         onTaskChanged: '&'
     }
 };

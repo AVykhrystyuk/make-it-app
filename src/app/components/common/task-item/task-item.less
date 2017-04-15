@@ -18,8 +18,10 @@ task-item {
             .bottom-bordered();
             padding-bottom: .5em;
             font-size: 14px;
-            cursor: @editable-cursor;
             overflow: hidden;
+            &.editable {
+                cursor: @editable-cursor;
+            }
             .text {
                 word-wrap: break-word;
                 word-break: break-all;
