@@ -17,9 +17,9 @@
 
         <div class="pull-left navbar-action">
             <ul class="nav navbar-nav hidden-xs fa-list">
-                <li ng-click="$ctrl.toggleSearchVisibility()">
-                    <a>
-                        <fa fw name="{{$ctrl.searchMode ? 'plus' : 'search'}}"></fa>
+                <li ng-click="$ctrl.toggleSearchMode()">
+                    <a tooltip-placement="bottom" uib-tooltip="{{$ctrl.modeInfo.tooltip}}">
+                        <fa fw name="{{$ctrl.modeInfo.icon}}"></fa>
                     </a>
                 </li>
             </ul>

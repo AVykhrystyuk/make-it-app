@@ -2,6 +2,7 @@
 
 import 'angular';
 import 'angular/angular-csp.css';
+import './angular-ui-bootstrap.js';
 
 import 'angular-ui-router';
 import 'angular-sanitize';

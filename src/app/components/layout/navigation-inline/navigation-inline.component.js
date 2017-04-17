@@ -9,16 +9,47 @@ class Controller {
         this.$transitions = $transitions;
         this.screenDigestedService = screenDigestedService;
         this.eventFactory = eventFactory;
-    }
-    $onInit() {
+
         this.searchMode = true;
         this.showTransition = false;
+        this.modeInfo = {
+            icon: 'none',
+            tooltip: 'none'
+        };
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
         this.$transitions.onStart({}, t => this._onTransitionStart(t));
     }
 
+    $onInit() {
+        this._updateModeInfo(this.searchMode);
+    }
+
     $onDestroy() {
         this._miniModeChangedSubscription.remove();
+    }
+
+    toggleSearchMode() {
+        this.searchMode = !this.searchMode;
+        this._updateModeInfo(this.searchMode);
+    }
+
+    openMiniMenu() {
+        this.onMiniMenuOpen(this.eventFactory.empty());
+    }
+
+    _updateModeInfo(searchMode) {
+        this.modeInfo = {
+            icon: searchMode ? 'plus' : 'search',
+            tooltip: searchMode ? 'Toggle to add task' : 'Toggle to search'
+        };
+    }
+
+    _miniModeChanged() {
+        if (this.screenDigestedService.miniMode) {
+            if (!this.searchMode) {
+                this.searchMode = true;
+            }
+        }
     }
 
     _onTransitionStart(transitions) {
@@ -31,22 +62,6 @@ class Controller {
             this.showTransition = false;
         };
         transitions.promise.then(onTransitionEnd, onTransitionEnd);
-    }
-
-    _miniModeChanged() {
-        if (this.screenDigestedService.miniMode) {
-            if (!this.searchMode) {
-                this.searchMode = true;
-            }
-        }
-    }
-
-    toggleSearchVisibility() {
-        this.searchMode = !this.searchMode;
-    }
-
-    openMiniMenu() {
-        this.onMiniMenuOpen(this.eventFactory.empty());
     }
 }
 
