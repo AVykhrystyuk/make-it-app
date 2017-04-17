@@ -93,7 +93,9 @@ task-item {
         @box-size: 22px;
         input[type="checkbox"],
         input[type="radio"] {
-            margin-left: 1.5px;
+            @offset: 1.5px;
+            margin-left: @offset;
+            margin-top: @offset;
             height: @original-box-size;
             width: @original-box-size;
         }
@@ -103,8 +105,13 @@ task-item {
             height: @box-size;
             width: @box-size;
             font-size: 13px;
+            margin-top: 0;
+            padding-top: 0;
+            top: 0px;
+        }
+        label::after {
             padding-left: 4.5px;
-            padding-top: 2.5px;
+            padding-top: 2px;
         }
     }
 }
