@@ -1,5 +1,6 @@
 -input[search] clear button
 -pages.github.com
--take a look at http://chieffancypants.github.io/angular-loading-bar
+-take a look at http://chieffancypants.github.io/angular-loading-bar, do we need it?
 
 -[bug] with side bar overlay (not shown) in mobile UC Browser (probably in desctop version same issue)
+-show promp dialog when user changes url with unsaved changes
