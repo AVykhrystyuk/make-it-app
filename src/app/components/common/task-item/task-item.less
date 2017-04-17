@@ -86,4 +86,25 @@ task-item {
             padding-top: 4px;
         }
     }
+    .abc-checkbox {
+        margin: 0;
+        padding: 0;
+        @original-box-size: 20px;
+        @box-size: 22px;
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-left: 1.5px;
+            height: @original-box-size;
+            width: @original-box-size;
+        }
+        label::before,
+        label::after {
+            margin-left: 0px;
+            height: @box-size;
+            width: @box-size;
+            font-size: 13px;
+            padding-left: 4.5px;
+            padding-top: 2.5px;
+        }
+    }
 }

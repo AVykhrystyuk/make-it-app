@@ -1,6 +1,10 @@
 <div class="readonly-contol-group" ng-if="!$ctrl.isEditing">
     <div class="checker-contol">
-        <input type="radio">
+        <!--<input type="radio">-->
+        <div class="checkbox abc-checkbox abc-checkbox-circle">
+            <input name="done-checkbox" class="styled" type="checkbox">
+            <label for="done-checkbox"></label>
+        </div>
     </div>
     <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()">
         <div class="action-panel">

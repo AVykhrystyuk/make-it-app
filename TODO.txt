@@ -1,4 +1,5 @@
--focused blue border
 -input[search] clear button
 -pages.github.com
 -take a look at http://chieffancypants.github.io/angular-loading-bar
+
+-[bug] with side bar overlay (not shown) in mobile UC Browser (probably in desctop version same issue)
