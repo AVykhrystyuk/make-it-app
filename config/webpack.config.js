@@ -71,6 +71,7 @@ function getAliases() {
         auth: path.resolve('src/app/common/auth'),
         utils: path.resolve('src/app/common/utils'),
         ngFontAwesome$: path.resolve('src/vendor/angular/angular-fontawesome.js'),
+        touchDeviceDetector$: path.resolve('src/app/common/touch-device-detector.js'),
     };
 }
 
