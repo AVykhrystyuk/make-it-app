@@ -4,6 +4,7 @@ import angular from 'angular';
 import ngUiBootstrapModule from './angular-ui-bootstrap.module.js';
 import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
+import ngSanitize from 'angular-sanitize';
 import ngFontawesome from 'ngFontAwesome';
 
 import {
@@ -13,6 +14,7 @@ import {
 } from './config';
 
 import Registrater from 'registrater';
+
 import {
     $exceptionHandlerFactory
 } from 'utils'
@@ -28,6 +30,7 @@ const appModule = angular.module('makeItApp', [
         ngUiBootstrapModule,
         ngAnimate,
         uiRouter,
+        ngSanitize,
         ngFontawesome,
 
         CommonModule,

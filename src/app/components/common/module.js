@@ -6,6 +6,7 @@ import Registrater from 'registrater';
 import {
     SearchInlineComponent,
     QuickTaskAddComponent,
+    DatepickerAutoFocusDirectiveFactory,
     TaskItemComponent,
     OverdueSectionComponent,
     DoneSectionComponent
@@ -20,6 +21,7 @@ new Registrater(ngModule)
         TaskItemComponent,
         OverdueSectionComponent,
         DoneSectionComponent
-    ]);
+    ])
+    .registerDirectives([DatepickerAutoFocusDirectiveFactory]);
 
 export default ngModule.name;

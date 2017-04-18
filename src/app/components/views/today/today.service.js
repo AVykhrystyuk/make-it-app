@@ -27,7 +27,6 @@ export class TodayService {
         let deferred = this.$q.defer();
 
         this.$timeout(() => {
-            //TODO: move to service and add delay (promise)
             let overdueTask = this.todaysData.overdueTasks.find(t => t.id === task.id);
             if (overdueTask) {
                 Object.assign(overdueTask, task);
@@ -42,9 +41,11 @@ export class TodayService {
     _getOverdueTasks() {
         let overdueTasks = [{
             id: 1,
+            date: new Date(),
             text: 'Task 1: < Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }, {
             id: 2,
+            date: new Date(),
             text: 'Task 2: > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }];
 

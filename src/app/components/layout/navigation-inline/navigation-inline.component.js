@@ -1,20 +1,22 @@
 'use strict';
 
-import './navigation-inline.component.less';
+import './navigation-inline.less';
 import template from './navigation-inline.html';
 
 class Controller {
-    constructor($transitions, screenDigestedService, eventFactory) {
+    constructor($transitions, screenDigestedService, eventFactory, hostInfo) {
         'ngInject';
         this.$transitions = $transitions;
         this.screenDigestedService = screenDigestedService;
         this.eventFactory = eventFactory;
+        this.hostInfo = hostInfo;
 
         this.searchMode = true;
         this.showTransition = false;
         this.modeInfo = {
             icon: 'none',
-            tooltip: 'none'
+            tooltip: 'none',
+            tooltipTrigger: this.hostInfo.isTouchDevice ? 'none' : 'mouseenter'
         };
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
         this.$transitions.onStart({}, t => this._onTransitionStart(t));
@@ -38,10 +40,8 @@ class Controller {
     }
 
     _updateModeInfo(searchMode) {
-        this.modeInfo = {
-            icon: searchMode ? 'plus' : 'search',
-            tooltip: searchMode ? 'Toggle to add task' : 'Toggle to search'
-        };
+        this.modeInfo.icon = searchMode ? 'plus' : 'search';
+        this.modeInfo.tooltip = searchMode ? 'Toggle to add task' : 'Toggle to search';            
     }
 
     _miniModeChanged() {

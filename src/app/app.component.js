@@ -1,7 +1,7 @@
 'use strict';
 
-import './app.component.less';
-import template from './app.component.html';
+import './app.less';
+import template from './app.html';
 
 class Controller {
     constructor(screenDigestedService) {

@@ -81,7 +81,7 @@ class Сontroller {
                 Object.assign(this.task, resultedTask);
                 this.cancelEdit();
             })
-            .finally(resultedTask => {
+            .finally(() => {
                 this.saving = false;
             });
     }

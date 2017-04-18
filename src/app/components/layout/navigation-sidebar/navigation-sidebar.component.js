@@ -1,6 +1,6 @@
 'use strict';
 
-import './navigation-sidebar.component.less';
+import './navigation-sidebar.less';
 import template from './navigation-sidebar.html';
 
 class Controller {

@@ -1,5 +1,6 @@
 'use strict';
 
+import angular from 'angular';
 import {
     EventEmitter
 } from 'fbemitter';

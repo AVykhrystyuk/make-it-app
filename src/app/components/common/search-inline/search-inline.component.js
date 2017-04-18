@@ -7,7 +7,7 @@ class Сontroller {
         'ngInject';
     }
     $onInit() {}
-    onSubmit() {
+    submit() {
         console.log('search-inline: onSubmit');
     }
 }

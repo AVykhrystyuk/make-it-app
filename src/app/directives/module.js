@@ -7,12 +7,13 @@ import {
     GlyphiconDirectiveFactory,
     ContentEditableDirectiveFactory,
     EnterKeyPressDirectiveFactory,
-    EscKeyPressDirectiveFactory
+    EscKeyPressDirectiveFactory,
+    AutoFocusDirectiveFactory
 } from '.';
 
 const ngModule = angular.module('makeItApp.directives', []);
     
 new Registrater(ngModule)
-    .registerDirectives([GlyphiconDirectiveFactory, ContentEditableDirectiveFactory, EnterKeyPressDirectiveFactory, EscKeyPressDirectiveFactory]);
+    .registerDirectives([GlyphiconDirectiveFactory, ContentEditableDirectiveFactory, EnterKeyPressDirectiveFactory, EscKeyPressDirectiveFactory, AutoFocusDirectiveFactory]);
 
 export default ngModule.name;

@@ -1,8 +1,8 @@
 'use strict';
 
-import {
-    AuthError
-} from 'auth';
+// import {
+//     AuthError
+// } from 'auth';
 
 export class ExceptionHandlerService {
     static get __name__() {
