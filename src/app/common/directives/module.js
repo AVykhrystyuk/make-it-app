@@ -11,7 +11,7 @@ import {
     AutoFocusDirectiveFactory
 } from '.';
 
-const ngModule = angular.module('makeItApp.directives', []);
+const ngModule = angular.module('makeItApp.common.directives', []);
     
 new Registrater(ngModule)
     .registerDirectives([GlyphiconDirectiveFactory, ContentEditableDirectiveFactory, EnterKeyPressDirectiveFactory, EscKeyPressDirectiveFactory, AutoFocusDirectiveFactory]);

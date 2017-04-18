@@ -24,7 +24,6 @@ import {
 
 import CommonModule from './common/module.js';
 import ComponentsModule from './components/module.js';
-import DirectivesModule from './directives/module.js';
 
 const appModule = angular.module('makeItApp', [
         ngUiBootstrapModule,
@@ -34,8 +33,7 @@ const appModule = angular.module('makeItApp', [
         ngFontawesome,
 
         CommonModule,
-        ComponentsModule,
-        DirectivesModule
+        ComponentsModule
     ])
     .config(Router.configure)
     .config(AnimateProvider.configure)

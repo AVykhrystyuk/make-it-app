@@ -16,7 +16,13 @@ import {
     PersistableUserDataService
 } from './services';
 
-const ngModule = angular.module('makeItApp.common', [toastr, ngStorage])
+import DirectivesModule from './directives/module.js';
+
+const ngModule = angular.module('makeItApp.common', [
+        toastr,
+        ngStorage,
+        DirectivesModule
+    ])
     .config(NotificationService.configure)
     .config(PersistableUserDataService.configure);
 

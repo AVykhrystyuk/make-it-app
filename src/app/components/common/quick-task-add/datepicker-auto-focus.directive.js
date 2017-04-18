@@ -19,7 +19,7 @@ export class DatepickerAutoFocusDirective {
             this.$timeout(() => {
                 let uibDaypickerElement = element.querySelector('.uib-daypicker');
                 uibDaypickerElement.focus();
-            });
+            }, 200);
         });
     }
 }
