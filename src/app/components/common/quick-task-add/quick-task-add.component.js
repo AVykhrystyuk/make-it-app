@@ -12,7 +12,8 @@ class Сontroller {
             selectedDate: new Date(),
             opened: false,
             options: {
-                showWeeks: false
+                showWeeks: false,
+                minDate: new Date()
             }
         };
 
