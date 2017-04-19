@@ -5,7 +5,7 @@
             <label for="done-checkbox"></label>
         </div>
     </div>
-    <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()">
+    <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Edit">
         <div class="action-panel">
             <span class="date warning">Yesterday</span>
         </div>

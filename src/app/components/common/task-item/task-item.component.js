@@ -8,12 +8,13 @@ const eventNames = {
 };
 
 class Сontroller {
-    constructor($document, $window, $rootScope, eventFactory) {
+    constructor($document, $window, $rootScope, eventFactory, hostInfo) {
         'ngInject';
         this.$document = $document;
         this.$window = $window;
         this.$rootScope = $rootScope;
         this.eventFactory = eventFactory;
+        this.hostInfo = hostInfo;
 
         this.isEditing = false;
         this.saving = false;
@@ -23,6 +24,8 @@ class Сontroller {
                 args.promise = this.saveEdit();
             }
         });
+
+        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
     }
 
     $onDestroy() {
