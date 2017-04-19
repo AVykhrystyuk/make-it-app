@@ -108,10 +108,14 @@ task-item {
             margin-top: 0;
             padding-top: 0;
             top: 0px;
+            transition: background .1s ease-in;
         }
         label::after {
             padding-left: 4.5px;
             padding-top: 2px;
+        }
+        input:hover+label::before {
+            background: #f4f4f4;
         }
     }
 }
