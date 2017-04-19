@@ -48,22 +48,22 @@ export class Router {
             url: '/next-7-days',
             component: 'next7Days',
             resolve: {
-                next7DaysData: () => {
-                    throw new AuthError('Bad auth credantials');
-                }
+                // next7DaysData: () => {
+                //     throw new AuthError('Bad auth credantials');
+                // }
             }
         }, {
             name: 'later',
             url: '/later',
             component: 'later',
             resolve: {
-                laterData: (laterService, $q) => {
-                    'ngInject';
+                // laterData: (laterService, $q) => {
+                //     'ngInject';
 
-                    //return $q.reject(new AuthError("not authenticated"));
-                    return $q.reject('Some unexpected error!');
-                    //return laterService.getLaterData();
-                }
+                //     //return $q.reject(new AuthError("not authenticated"));
+                //     return $q.reject('Some unexpected error!');
+                //     //return laterService.getLaterData();
+                // }
 
             }
         }];
