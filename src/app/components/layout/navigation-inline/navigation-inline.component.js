@@ -15,9 +15,9 @@ class Controller {
         this.showTransition = false;
         this.modeInfo = {
             icon: 'none',
-            tooltip: 'none',
-            tooltipTrigger: this.hostInfo.isTouchDevice ? 'none' : 'mouseenter'
+            tooltip: 'none'
         };
+        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
         this.$transitions.onStart({}, t => this._onTransitionStart(t));
     }

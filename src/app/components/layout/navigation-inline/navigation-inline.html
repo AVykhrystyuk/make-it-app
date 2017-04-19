@@ -18,7 +18,7 @@
         <div class="pull-left navbar-action">
             <ul class="nav navbar-nav hidden-xs fa-list">
                 <li ng-click="$ctrl.toggleSearchMode()">
-                    <a tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.modeInfo.tooltipTrigger}}'" uib-tooltip="{{$ctrl.modeInfo.tooltip}}">
+                    <a tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" uib-tooltip="{{$ctrl.modeInfo.tooltip}}">
                         <fa fw name="{{$ctrl.modeInfo.icon}}"></fa>
                     </a>
                 </li>
@@ -30,9 +30,9 @@
         </div>
 
         <ul class="nav navbar-nav navbar-right fa-list">
-            <li class="initials hidden-xxs"><a href="#"><strong>AV</strong></a></li>
+            <li class="initials hidden-xxs"><a href="#" tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" uib-tooltip="User initials (under development)"><strong>AV</strong></a></li>
             <li>
-                <a>
+                <a tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" uib-tooltip="Open settings (under development)">
                     <fa fw name="cog" spin="{{ $ctrl.showTransition }}" alt="settings"></fa>
                 </a>
             </li>
