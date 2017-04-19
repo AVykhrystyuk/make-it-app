@@ -1,4 +1,4 @@
-# Make-it : Amazingly simple task manager
+# Make-it: Amazingly simple task manager
 MakeIt app offers useful and user-friendly features to organize your tasks and optimize your productivity.
 
 ### Hosted on NodeJs and deployed on heroku

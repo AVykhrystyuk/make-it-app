@@ -4,7 +4,7 @@ import './quick-task-add.less';
 import template from './quick-task-add.html';
 
 class Сontroller {
-    constructor($scope, hostInfo) {
+    constructor(hostInfo) {
         'ngInject';
         this.hostInfo = hostInfo;
 
@@ -20,16 +20,6 @@ class Сontroller {
             trigger: this.hostInfo.isTouchDevice ? 'none' : 'mouseenter',
             text: 'Click to choose a day',
         };
-
-        $scope.$watch('$ctrl.datepicker.selectedDate', newValue => {
-            if (!newValue) {
-                return;
-            }
-
-            if (this.datepicker.opened) {
-                this.datepicker.opened = false;
-            }
-        });
     }
 
     $onInit() {
@@ -38,6 +28,12 @@ class Сontroller {
 
     submit() {
         console.log('quick-task-add: onSubmit');
+    }
+
+    onSelectedDateChanged() {
+        if (this.datepicker.opened) {
+            this.datepicker.opened = false;
+        }
     }
 
     toggleDatepickerVisibility() {

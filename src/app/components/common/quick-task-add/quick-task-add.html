@@ -13,6 +13,6 @@
 <script type="text/ng-template" id="date-popover-template.html">
     <pre>Selected: <em>{{$ctrl.datepicker.selectedDate | date:'fullDate' }}</em></pre>
     <div style="display:inline-block;">
-        <div datepicker-auto-focus="true" uib-datepicker ng-model="$ctrl.datepicker.selectedDate" class="quick-task-add-datepicker well well-sm" datepicker-options="$ctrl.datepicker.options"></div>
+        <div  class="quick-task-add-datepicker well well-sm" datepicker-auto-focus="true" uib-datepicker ng-model="$ctrl.datepicker.selectedDate" ng-change="$ctrl.onSelectedDateChanged()" datepicker-options="$ctrl.datepicker.options"></div>
     </div>
 </script>
