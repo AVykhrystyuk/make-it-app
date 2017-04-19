@@ -72,7 +72,12 @@ class Сontroller {
             return;
         }
 
-        if (!this._editableTaskIsValid()) {
+        if (!this._isEditableTaskValid()) {
+            return;
+        }
+
+        if (!this._isTaskChanged()) {
+            this.cancelEdit();
             return;
         }
 
@@ -89,7 +94,11 @@ class Сontroller {
             });
     }
 
-    _editableTaskIsValid() {
+    _isTaskChanged() {
+        return this.editableTask.text !== this.task.text;
+    }
+
+    _isEditableTaskValid() {
         return this.editableTask && this.editableTask.text;
     }
 
