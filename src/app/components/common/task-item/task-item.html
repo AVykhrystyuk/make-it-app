@@ -1,17 +1,4 @@
-<div class="readonly-contol-group" ng-if="!$ctrl.isEditing">
-    <div class="checker-contol">
-        <div class="checkbox abc-checkbox abc-checkbox-circle">
-            <input name="done-checkbox" class="styled" type="checkbox">
-            <label for="done-checkbox"></label>
-        </div>
-    </div>
-    <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Edit">
-        <div class="action-panel">
-            <span class="date warning">Yesterday</span>
-        </div>
-        <span class="text" ng-bind="$ctrl.task.text"></span>
-    </div>
-</div>
+<task-item-readonly ng-if="!$ctrl.isEditing" task="$ctrl.task" is-editable="$ctrl.isEditable" on-begin-edit="$ctrl.onBeginEdit($event);"></task-item-readonly>
 <div class="editable-contol-group" ng-if="$ctrl.isEditing" ng-model-options="{
   'updateOn': 'default',
   'debounce': { 'default': 0 }
@@ -19,9 +6,14 @@
     <form ng-submit="$ctrl.saveEdit()">
         <div class="editor-panel">
             <div class="richtext-editor-wrapper">
-                <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true" contenteditable-trim-text="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
+                <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
+                    contenteditable-trim-text="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>
-            <div class="date" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date (under development)">9 Apr</div>
+            <div class="date" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date (under development)">
+                <!--<input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="{{'dd-MMMM-yyyy'}}" ng-model="$ctrl.datepickerPopup.selectedDate"
+                    ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
+                />-->
+                <span>9 Apr</span></div>
         </div>
         <div class="button-panel">
             <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>

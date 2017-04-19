@@ -8,10 +8,8 @@ const eventNames = {
 };
 
 class Сontroller {
-    constructor($document, $window, $rootScope, eventFactory, hostInfo) {
+    constructor($rootScope, eventFactory, hostInfo) {
         'ngInject';
-        this.$document = $document;
-        this.$window = $window;
         this.$rootScope = $rootScope;
         this.eventFactory = eventFactory;
         this.hostInfo = hostInfo;
@@ -44,11 +42,7 @@ class Сontroller {
         }
     }
 
-    beginEdit() {
-        if (!this.isEditable) {
-            return;
-        }
-
+    onBeginEdit() {
         let args = {
             taskId: this.task.id,
             promise: null

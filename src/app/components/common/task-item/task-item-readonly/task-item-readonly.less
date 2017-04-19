@@ -1,0 +1,70 @@
+@import "~components/mixins.less";
+task-item-readonly {
+    .readonly-contol-group {
+        .checker-contol {
+            input[type="radio"] {
+                @radio-size: 18px;
+                height: @radio-size;
+                width: @radio-size;
+                margin: 0 auto;
+            }
+            width: 30px;
+            float: left;
+        }
+        .task-content {
+            .bottom-bordered();
+            padding-bottom: .5em;
+            font-size: 14px;
+            overflow: hidden;
+            &.editable {
+                cursor: text;
+            }
+            .text {
+                word-wrap: break-word;
+                word-break: break-all;
+                overflow-wrap: break-word;
+            }
+            .action-panel {
+                float: right;
+                margin-left: 12px;
+                .date {
+                    &.warning {
+                        border-bottom: 1px solid #d8422d !important;
+                    }
+                }
+            }
+        }
+        .abc-checkbox {
+            margin: 0;
+            padding: 0;
+            @original-box-size: 20px;
+            @box-size: 22px;
+            input[type="checkbox"],
+            input[type="radio"] {
+                @offset: 1.5px;
+                margin-left: @offset;
+                margin-top: @offset;
+                height: @original-box-size;
+                width: @original-box-size;
+            }
+            label::before,
+            label::after {
+                margin-left: 0px;
+                height: @box-size;
+                width: @box-size;
+                font-size: 13px;
+                margin-top: 0;
+                padding-top: 0;
+                top: 0px;
+                transition: background .1s ease-in;
+            }
+            label::after {
+                padding-left: 4.5px;
+                padding-top: 2px;
+            }
+            input:hover+label::before {
+                background: #f4f4f4;
+            }
+        }
+    }
+}

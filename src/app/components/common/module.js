@@ -6,20 +6,20 @@ import Registrater from 'registrater';
 import {
     SearchInlineComponent,
     QuickTaskAddComponent,
-    TaskItemComponent,
     OverdueSectionComponent,
     DoneSectionComponent,
     DatePickerTemplate
 } from '.';
 
-const ngModule = angular.module('makeItApp.components.common', [])
+import TaskItemModule from './task-item/module.js';
+
+const ngModule = angular.module('makeItApp.components.common', [TaskItemModule])
     .run(DatePickerTemplate.run);
 
 new Registrater(ngModule)
     .registerComponents([
         QuickTaskAddComponent,
         SearchInlineComponent,
-        TaskItemComponent,
         OverdueSectionComponent,
         DoneSectionComponent
     ]);

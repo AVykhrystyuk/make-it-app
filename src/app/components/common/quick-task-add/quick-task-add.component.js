@@ -17,10 +17,8 @@ class Сontroller {
             }
         };
 
-        this.datepickerTooltip = {
-            trigger: this.hostInfo.isTouchDevice ? 'none' : 'mouseenter',
-            text: 'Click to choose a day',
-        };
+        this.datepickerTooltip = "none";
+        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
     }
 
     $onInit() {
@@ -41,7 +39,7 @@ class Сontroller {
     }
 
     _updateDatepickerTooltip() {
-        this.datepickerTooltip.trigger = this.hostInfo.isTouchDevice || this.datepickerPopup.opened ? 'none' : 'mouseenter';
+        this.datepickerTooltip = this.datepickerPopup.opened ? "Click to close" : "Click to choose a day";
     }
 }
 

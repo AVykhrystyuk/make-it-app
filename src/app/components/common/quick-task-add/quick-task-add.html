@@ -2,12 +2,12 @@
     <div class="input-group input-group-sm">
         <input type="text" class="form-control" placeholder="Quick Add Task" autocomplete="off" autocorrect="off" spellcheck="false">
         <div class="input-group-btn">
-            <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="{{'dd-MMMM-yyyy'}}" ng-model="$ctrl.datepickerPopup.selectedDate"
+            <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="'dd-MMMM-yyyy'" ng-model="$ctrl.datepickerPopup.selectedDate"
                 ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
             />
-            <button type="button" class="btn btn-default" tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.datepickerTooltip.trigger}}'" uib-tooltip="{{$ctrl.datepickerTooltip.text}}"
+            <button type="button" class="btn btn-default" tooltip-placement="bottom" tooltip-trigger="'mouseenter'" uib-tooltip="{{$ctrl.datepickerTooltip}}"
                 ng-click="$ctrl.toggleDatepickerVisibility()">Today <i class="caret"></i></button>
-            <button type="submit" class="btn btn-default" aria-label="Quick Add Task"><fa name="plus"></button>
+            <button type="submit" class="btn btn-default" aria-label="Quick Add Task" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="bottom" uib-tooltip="Add new task"><fa name="plus"></button>
         </div>
     </div>
 </form>
