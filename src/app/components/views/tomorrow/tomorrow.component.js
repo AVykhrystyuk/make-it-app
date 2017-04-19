@@ -1,6 +1,6 @@
 'use strict';
 
-import template from './tommorow.html';
+import template from './tomorrow.html';
 
 class Сontroller {
     constructor() {
@@ -9,8 +9,8 @@ class Сontroller {
     $onInit() {}
 }
 
-export const TommorowComponent = {
-    __name__: 'tommorow',
+export const TomorrowComponent = {
+    __name__: 'tomorrow',
     template,
     controller: Сontroller
 };

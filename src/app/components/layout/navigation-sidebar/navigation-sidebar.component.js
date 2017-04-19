@@ -16,9 +16,9 @@ class Controller {
             icon: 'bell',
             text: 'Today'
         }, {
-            state: 'tommorow',
+            state: 'tomorrow',
             icon: 'calendar-check-o',
-            text: 'Tommorow'
+            text: 'Tomorrow'
         }, {
             state: 'next7Days',
             icon: 'calendar',

@@ -34,9 +34,9 @@ export class Router {
                 }
             }
         }, {
-            name: 'tommorow',
-            url: '/tommorow',
-            component: 'tommorow',
+            name: 'tomorrow',
+            url: '/tomorrow',
+            component: 'tomorrow',
             resolve: {
                 todaysData: todayService => {
                     'ngInject';
