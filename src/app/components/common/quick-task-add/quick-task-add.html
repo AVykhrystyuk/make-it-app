@@ -2,17 +2,12 @@
     <div class="input-group input-group-sm">
         <input type="text" class="form-control" placeholder="Quick Add Task" autocomplete="off" autocorrect="off" spellcheck="false">
         <div class="input-group-btn">
-            <button type="button" class="btn btn-default" tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.datepickerTooltip.trigger}}'" uib-tooltip="{{$ctrl.datepickerTooltip.text}}" popover-class="quick-task-add-date-popover" popover-is-open="$ctrl.datepicker.opened" popover-placement="bottom" popover-trigger="'node'" uib-popover-template="'date-popover-template.html'" ng-click="$ctrl.toggleDatepickerVisibility()">Today <i class="caret"></i></button>
+            <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="{{'dd-MMMM-yyyy'}}" ng-model="$ctrl.datepickerPopup.selectedDate"
+                ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
+            />
+            <button type="button" class="btn btn-default" tooltip-placement="bottom" tooltip-trigger="'{{$ctrl.datepickerTooltip.trigger}}'" uib-tooltip="{{$ctrl.datepickerTooltip.text}}"
+                ng-click="$ctrl.toggleDatepickerVisibility()">Today <i class="caret"></i></button>
             <button type="submit" class="btn btn-default" aria-label="Quick Add Task"><fa name="plus"></button>
         </div>
     </div>
 </form>
-
-<div class="datepicker-popover-overlay" ng-show="$ctrl.datepicker.opened" ng-click="$ctrl.toggleDatepickerVisibility()"></div>
-
-<script type="text/ng-template" id="date-popover-template.html">
-    <pre>Selected: <em>{{$ctrl.datepicker.selectedDate | date:'fullDate' }}</em></pre>
-    <div style="display:inline-block;">
-        <div  class="quick-task-add-datepicker well well-sm" datepicker-auto-focus="true" uib-datepicker ng-model="$ctrl.datepicker.selectedDate" ng-change="$ctrl.onSelectedDateChanged()" datepicker-options="$ctrl.datepicker.options"></div>
-    </div>
-</script>

@@ -1,23 +1,10 @@
- .quick-task-add-date-popover {
-     max-width: 500px;
- }
-
- .quick-task-add-datepicker {
-     margin-bottom: 0px;
-     //temporary workaround for datepicker flashes see https://github.com/angular-ui/bootstrap/issues/5446#issuecomment-182132590
-     .ng-enter-prepare {
-         display: none!important;
-     }
- }
 
  quick-task-add {
-     .datepicker-popover-overlay {
-         position: fixed;
-         z-index: 500;
-         left: 0;
-         top: 0;
-         width: 100%;
-         height: 100%;
-         opacity: 0;
+     input.datepicker-popup-hidden {
+         width: 1px;
+         margin: -2px;
+         outline: none;
+         height: 30px;
+         padding: 0;
      }
  }

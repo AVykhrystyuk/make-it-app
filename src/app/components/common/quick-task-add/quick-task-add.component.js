@@ -8,7 +8,7 @@ class Сontroller {
         'ngInject';
         this.hostInfo = hostInfo;
 
-        this.datepicker = {
+        this.datepickerPopup = {
             selectedDate: new Date(),
             opened: false,
             options: {
@@ -31,18 +31,16 @@ class Сontroller {
     }
 
     onSelectedDateChanged() {
-        if (this.datepicker.opened) {
-            this.datepicker.opened = false;
-        }
+        console.log('onSelectedDateChanged');
     }
 
     toggleDatepickerVisibility() {
-        this.datepicker.opened = !this.datepicker.opened;
+        this.datepickerPopup.opened = !this.datepickerPopup.opened;
         this._updateDatepickerTooltip();
     }
 
     _updateDatepickerTooltip() {
-        this.datepickerTooltip.trigger = this.hostInfo.isTouchDevice || this.datepicker.opened ? 'none' : 'mouseenter';
+        this.datepickerTooltip.trigger = this.hostInfo.isTouchDevice || this.datepickerPopup.opened ? 'none' : 'mouseenter';
     }
 }
 

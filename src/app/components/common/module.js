@@ -6,13 +6,14 @@ import Registrater from 'registrater';
 import {
     SearchInlineComponent,
     QuickTaskAddComponent,
-    DatepickerAutoFocusDirectiveFactory,
     TaskItemComponent,
     OverdueSectionComponent,
-    DoneSectionComponent
+    DoneSectionComponent,
+    DatePickerTemplate
 } from '.';
 
-const ngModule = angular.module('makeItApp.components.common', []);
+const ngModule = angular.module('makeItApp.components.common', [])
+    .run(DatePickerTemplate.run);
 
 new Registrater(ngModule)
     .registerComponents([
@@ -21,7 +22,6 @@ new Registrater(ngModule)
         TaskItemComponent,
         OverdueSectionComponent,
         DoneSectionComponent
-    ])
-    .registerDirectives([DatepickerAutoFocusDirectiveFactory]);
+    ]);
 
 export default ngModule.name;
