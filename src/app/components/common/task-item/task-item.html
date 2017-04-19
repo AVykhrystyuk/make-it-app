@@ -21,7 +21,7 @@
             <div class="richtext-editor-wrapper">
                 <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true" contenteditable-trim-text="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>
-            <div class="date">9 Apr</div>
+            <div class="date" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date (under development)">9 Apr</div>
         </div>
         <div class="button-panel">
             <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>
