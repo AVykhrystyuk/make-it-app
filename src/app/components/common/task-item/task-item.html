@@ -15,7 +15,7 @@
                     <span>{{ $ctrl.editableTask.date | date : 'd MMM'}}</span>
                 </div>
                 <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup ng-model="$ctrl.editableTask.date" ng-change="$ctrl.onSelectedDateChanged()"
-                    is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
+                    is-open="$ctrl.datepickerPopup.opened" popup-placement="bottom-right" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
                 />
             </div>
         </div>
