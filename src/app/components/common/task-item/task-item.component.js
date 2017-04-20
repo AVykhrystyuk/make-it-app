@@ -26,7 +26,6 @@ class Сontroller {
         this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
 
         this.datepickerPopup = {
-            selectedDate: new Date(),
             opened: false,
             options: {
                 showWeeks: false,
@@ -104,7 +103,7 @@ class Сontroller {
     }
 
     _isTaskChanged() {
-        return this.editableTask.text !== this.task.text;
+        return this.editableTask.text !== this.task.text || this.editableTask.date !== this.task.date;
     }
 
     _isEditableTaskValid() {

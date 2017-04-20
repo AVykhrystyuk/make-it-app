@@ -16,6 +16,10 @@ import {
     PersistableUserDataService
 } from './services';
 
+import {
+    DateFormatterFilterFactory
+} from './filters';
+
 import DirectivesModule from './directives/module.js';
 
 const ngModule = angular.module('makeItApp.common', [
@@ -29,7 +33,8 @@ const ngModule = angular.module('makeItApp.common', [
 addHostInfo(ngModule);
 
 new Registrater(ngModule)
-    .registerServices([ScreenService, ScreenDigestedService, EventFactory, NotificationService, ExceptionHandlerService]);
+    .registerServices([ScreenService, ScreenDigestedService, EventFactory, NotificationService, ExceptionHandlerService])
+    .registerFilters([DateFormatterFilterFactory]);
 
 function addHostInfo(ngModule) {
     var detector = new TouchDeviceDetector(window);

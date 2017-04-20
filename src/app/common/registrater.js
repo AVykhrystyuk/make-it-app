@@ -25,6 +25,11 @@ export default class Registrater {
         return this;
     }
 
+    registerFilters(filters) {
+        filters.forEach(f => this.registerFilter(f));
+        return this;
+    }
+
     registerComponent(component) {
         this.ngModule.component(component.__name__, component);
         return this;
@@ -42,6 +47,11 @@ export default class Registrater {
 
     registerFactory(factory) {
         this.ngModule.factory(factory.__name__, factory);
+        return this;
+    }
+
+    registerFilter(factory) {
+        this.ngModule.filter(factory.__name__, factory);
         return this;
     }
 }

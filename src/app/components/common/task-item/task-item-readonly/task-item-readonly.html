@@ -7,7 +7,7 @@
     </div>
     <div class="task-content" ng-class="{'editable': $ctrl.isEditable}" ng-click="$ctrl.beginEdit()">
         <div class="action-panel">
-            <span class="date warning">Yesterday</span>
+            <span class="date warning">{{ $ctrl.task.date | dateFormatter:'d MMM'}}</span>
         </div>
         <span class="text" ng-bind="$ctrl.task.text"></span>
     </div>
