@@ -11,7 +11,7 @@ class Controller {
         this.eventFactory = eventFactory;
         this.hostInfo = hostInfo;
 
-        this.searchMode = true;
+        this.searchMode = false;
         this.showTransition = false;
         this.modeInfo = {
             icon: 'none',

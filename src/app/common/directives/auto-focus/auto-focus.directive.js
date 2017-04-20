@@ -10,7 +10,7 @@ export class AutoFocusDirective {
     }
     link($scope, $element, $attrs) {
         $attrs.$observe(directiveName, newValue => {
-            if (!newValue) {
+            if (!newValue || newValue === "false") {
                 return;
             }
             this.$timeout(() => $element[0].focus());

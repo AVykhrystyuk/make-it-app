@@ -52,9 +52,14 @@ class Сontroller {
 
     toggleDatepickerVisibility() {
         this.datepickerPopup.opened = !this.datepickerPopup.opened;
+        if (this.datepickerPopup.opened) {
+            this.editableTaskFocused = false;
+        }
     }
 
-    onSelectedDateChanged() {}
+    onSelectedDateChanged() {
+        this.editableTaskFocused = true;
+    }
 
     onBeginEdit() {
         let args = {
