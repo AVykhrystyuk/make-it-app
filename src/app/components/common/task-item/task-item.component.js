@@ -24,6 +24,15 @@ class Сontroller {
         });
 
         this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+
+        this.datepickerPopup = {
+            selectedDate: new Date(),
+            opened: false,
+            options: {
+                showWeeks: false,
+                minDate: new Date()
+            }
+        };
     }
 
     $onDestroy() {
@@ -41,6 +50,12 @@ class Сontroller {
             this.task = Object.assign({}, this.task);
         }
     }
+
+    toggleDatepickerVisibility() {
+        this.datepickerPopup.opened = !this.datepickerPopup.opened;
+    }
+
+    onSelectedDateChanged() {}
 
     onBeginEdit() {
         let args = {

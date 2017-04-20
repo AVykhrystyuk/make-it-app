@@ -9,11 +9,14 @@
                 <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
                     contenteditable-trim-text="true" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>
-            <div class="date" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date (under development)">
-                <!--<input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="{{'dd-MMMM-yyyy'}}" ng-model="$ctrl.datepickerPopup.selectedDate"
+            <div class="date-container" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date" ng-click="$ctrl.toggleDatepickerVisibility()">
+                <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup="'dd-MMMM-yyyy'" ng-model="$ctrl.datepickerPopup.selectedDate"
                     ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
-                />-->
-                <span>9 Apr</span></div>
+                />
+                <div class="date">
+                    <span>9 Apr</span>
+                </div>
+            </div>
         </div>
         <div class="button-panel">
             <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>
