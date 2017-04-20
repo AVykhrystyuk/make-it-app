@@ -7,15 +7,16 @@
         <div class="editor-panel">
             <div class="richtext-editor-wrapper">
                 <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
-                    contenteditable-trim-text="true" auto-focus="{{$ctrl.editableTaskFocused}}" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()" mi-esc-key-press="$ctrl.cancelEdit()"></div>
+                    contenteditable-trim-text="true" auto-focus="{{$ctrl.editableTaskFocused}}" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()"
+                    mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>
             <div class="date-container" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date" ng-click="$ctrl.toggleDatepickerVisibility()">
-                <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup ng-model="$ctrl.editableTask.date"
-                    ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
-                />
                 <div class="date">
                     <span>{{ $ctrl.editableTask.date | date : 'd MMM'}}</span>
                 </div>
+                <input type="text" class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup ng-model="$ctrl.editableTask.date" ng-change="$ctrl.onSelectedDateChanged()"
+                    is-open="$ctrl.datepickerPopup.opened" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
+                />
             </div>
         </div>
         <div class="button-panel">

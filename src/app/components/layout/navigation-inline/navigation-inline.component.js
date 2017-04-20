@@ -23,6 +23,7 @@ class Controller {
     }
 
     $onInit() {
+        this._miniModeChanged();
         this._updateModeInfo(this.searchMode);
     }
 
