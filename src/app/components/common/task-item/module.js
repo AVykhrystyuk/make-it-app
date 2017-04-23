@@ -5,7 +5,8 @@ import Registrater from 'registrater';
 
 import {
     TaskItemComponent,
-    TaskItemReadonlyComponent
+    TaskItemReadonlyComponent,
+    TaskItemEditableComponent
 } from '.';
 
 const ngModule = angular.module('makeItApp.components.common.taskItem', [])
@@ -13,7 +14,8 @@ const ngModule = angular.module('makeItApp.components.common.taskItem', [])
 new Registrater(ngModule)
     .registerComponents([
         TaskItemComponent,
-        TaskItemReadonlyComponent
+        TaskItemReadonlyComponent,
+        TaskItemEditableComponent
     ]);
 
 export default ngModule.name;

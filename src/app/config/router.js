@@ -1,8 +1,8 @@
 'use strict';
 
-import {
-    AuthError
-} from 'auth';
+// import {
+//     AuthError
+// } from 'auth';
 
 export class Router {
     static configure($stateProvider, $urlRouterProvider) {

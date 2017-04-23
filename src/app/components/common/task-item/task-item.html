@@ -1,27 +1,2 @@
 <task-item-readonly ng-if="!$ctrl.isEditing" task="$ctrl.task" is-editable="$ctrl.isEditable" on-begin-edit="$ctrl.onBeginEdit($event);"></task-item-readonly>
-<div class="editable-contol-group" ng-if="$ctrl.isEditing" ng-model-options="{
-  'updateOn': 'default',
-  'debounce': { 'default': 0 }
-}">
-    <form ng-submit="$ctrl.saveEdit()">
-        <div class="editor-panel">
-            <div class="richtext-editor-wrapper">
-                <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
-                    contenteditable-trim-text="true" auto-focus="{{$ctrl.editableTaskFocused}}" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()"
-                    mi-esc-key-press="$ctrl.cancelEdit()"></div>
-            </div>
-            <div class="date-container" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date" ng-click="$ctrl.toggleDatepickerVisibility()">
-                <div class="date">
-                    <span>{{ $ctrl.editableTask.date | date : 'd MMM'}}</span>
-                </div>
-                <input type="text" tabindex="-1" readonly class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup ng-model="$ctrl.editableTask.date" ng-change="$ctrl.onSelectedDateChanged()"
-                    is-open="$ctrl.datepickerPopup.opened" popup-placement="bottom-right" datepicker-options="$ctrl.datepickerPopup.options" close-text="Close"
-                />
-            </div>
-        </div>
-        <div class="button-panel">
-            <button type="submit" class="btn btn-sm btn-primary" aria-label="Save"><fa ng-hide="$ctrl.saving" name="floppy-o"></fa><fa name="spinner" class="fa-pulse" ng-show="$ctrl.saving"></fa> Save</button>
-            <button type="button" class="btn btn-sm btn-default" aria-label="Cancel" ng-click="$ctrl.cancelEdit()" ng-disabled="$ctrl.saving"><fa name="ban"></fa> Cancel</button>
-        </div>
-    </form>
-</div>
+<task-item-editable ng-if="$ctrl.isEditing" task="$ctrl.task" on-save-edit="$ctrl.onSaveEdit($event);" on-cancel-edit="$ctrl.onCancelEdit($event);"></task-item-editable>

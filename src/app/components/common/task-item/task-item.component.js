@@ -2,10 +2,7 @@
 
 import './task-item.less';
 import template from './task-item.html';
-
-const eventNames = {
-    beginEditTaskRequest: 'taskItem: beginEditTask'
-};
+import eventNames from './task-item.events.js';
 
 class Сontroller {
     constructor($rootScope, eventFactory, hostInfo) {
@@ -15,50 +12,12 @@ class Сontroller {
         this.hostInfo = hostInfo;
 
         this.isEditing = false;
-        this.saving = false;
-
-        this.beginEditTaskEventCleanUp = this.$rootScope.$on(eventNames.beginEditTaskRequest, (event, args) => {
-            if (args.taskId !== this.task.id) {
-                args.promise = this.saveEdit();
-            }
-        });
-
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
-
-        this.datepickerPopup = {
-            opened: false,
-            options: {
-                showWeeks: false,
-                minDate: new Date()
-            }
-        };
-    }
-
-    $onDestroy() {
-        this.beginEditTaskEventCleanUp();
     }
 
     $onInit() {
         if (this.isEditable === undefined) {
             this.isEditable = true;
         }
-    }
-
-    $onChanges(changes) {
-        if (changes.task) {
-            this.task = Object.assign({}, this.task);
-        }
-    }
-
-    toggleDatepickerVisibility() {
-        this.datepickerPopup.opened = !this.datepickerPopup.opened;
-        if (this.datepickerPopup.opened) {
-            this.editableTaskFocused = false;
-        }
-    }
-
-    onSelectedDateChanged() {
-        this.editableTaskFocused = true;
     }
 
     onBeginEdit() {
@@ -76,52 +35,23 @@ class Сontroller {
         }
     }
 
-    cancelEdit() {
-        this._turnOffEditing();
-    }
-
-    saveEdit() {
-        if (this.saving) {
-            return;
-        }
-
-        if (!this._isEditableTaskValid()) {
-            return;
-        }
-
-        if (!this._isTaskChanged()) {
-            this.cancelEdit();
-            return;
-        }
-
-        this.saving = true;
-        return this.onTaskChanged(this.eventFactory.create({
-                task: this.editableTask
-            }))
+    onSaveEdit(event) {
+        return this.onTaskChanged(this.eventFactory.create(event))
             .then(resultedTask => {
                 Object.assign(this.task, resultedTask);
-                this.cancelEdit();
-            })
-            .finally(() => {
-                this.saving = false;
+                this.onCancelEdit();
             });
     }
 
-    _isTaskChanged() {
-        return this.editableTask.text !== this.task.text || this.editableTask.date !== this.task.date;
-    }
-
-    _isEditableTaskValid() {
-        return this.editableTask && this.editableTask.text;
+    onCancelEdit() {
+        this._turnOffEditing();
     }
 
     _turnOffEditing() {
-        this.editableTask = null;
         this.isEditing = false;
     }
 
     _turnOnEditing() {
-        this.editableTask = Object.assign({}, this.task);
         this.isEditing = true;
     }
 }
