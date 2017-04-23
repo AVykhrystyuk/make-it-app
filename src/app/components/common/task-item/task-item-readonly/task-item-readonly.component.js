@@ -4,13 +4,13 @@ import './task-item-readonly.less';
 import template from './task-item-readonly.html';
 
 class Сontroller {
-    constructor(eventFactory, hostInfo) {
+    constructor(eventFactory, tooltipTriggerService) {
         'ngInject';
         this.eventFactory = eventFactory;
-        this.hostInfo = hostInfo;
+        this.tooltipTriggerService = tooltipTriggerService;
 
         this.isEditing = false;
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+        this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
     }
 
     $onInit() {

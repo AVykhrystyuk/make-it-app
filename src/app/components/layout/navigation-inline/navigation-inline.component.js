@@ -4,12 +4,12 @@ import './navigation-inline.less';
 import template from './navigation-inline.html';
 
 class Controller {
-    constructor($transitions, screenDigestedService, eventFactory, hostInfo) {
+    constructor($transitions, screenDigestedService, eventFactory, tooltipTriggerService) {
         'ngInject';
         this.$transitions = $transitions;
         this.screenDigestedService = screenDigestedService;
         this.eventFactory = eventFactory;
-        this.hostInfo = hostInfo;
+        this.tooltipTriggerService = tooltipTriggerService;
 
         this.searchMode = false;
         this.showTransition = false;
@@ -17,7 +17,7 @@ class Controller {
             icon: 'none',
             tooltip: 'none'
         };
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+        this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
         this._miniModeChangedSubscription = this.screenDigestedService.subscribeOnMiniModeChanged(() => this._miniModeChanged());
         this.$transitions.onStart({}, t => this._onTransitionStart(t));
     }

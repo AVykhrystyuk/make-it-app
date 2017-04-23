@@ -3,10 +3,10 @@
 import template from './search-inline.html';
 
 class Сontroller {
-    constructor(hostInfo) {
+    constructor(tooltipTriggerService) {
         'ngInject';
-        this.hostInfo = hostInfo;
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+        this.tooltipTriggerService = tooltipTriggerService;
+        this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
     }
     $onInit() {}
     submit() {

@@ -5,15 +5,15 @@ import template from './task-item-editable.html';
 import eventNames from '../task-item.events.js';
 
 class Сontroller {
-    constructor($rootScope, eventFactory, hostInfo) {
+    constructor($rootScope, eventFactory, tooltipTriggerService) {
         'ngInject';
         this.$rootScope = $rootScope;
         this.eventFactory = eventFactory;
-        this.hostInfo = hostInfo;
+        this.tooltipTriggerService = tooltipTriggerService;
 
         this.saving = false;
         this.editableTaskFocused = false;
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+        this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
 
         this.datepickerPopup = {
             opened: false,

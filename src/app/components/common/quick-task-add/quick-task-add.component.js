@@ -4,9 +4,9 @@ import './quick-task-add.less';
 import template from './quick-task-add.html';
 
 class Сontroller {
-    constructor(hostInfo) {
+    constructor(tooltipTriggerService) {
         'ngInject';
-        this.hostInfo = hostInfo;
+        this.tooltipTriggerService = tooltipTriggerService;
 
         this.datepickerPopup = {
             selectedDate: new Date(),
@@ -18,7 +18,7 @@ class Сontroller {
         };
 
         this.datepickerTooltip = "none";
-        this.tooltipTrigger = this.hostInfo.isTouchDevice ? 'none' : 'mouseenter';
+        this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
     }
 
     $onInit() {
