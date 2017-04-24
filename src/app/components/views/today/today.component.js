@@ -1,12 +1,14 @@
 'use strict';
 
 import '../styles.less';
+import './today.less';
 import template from './today.html';
 
 class Сontroller {
     constructor(todayService) {
         'ngInject';
         this.todayService = todayService;
+        this.date = new Date();
     }
     $onInit() {
         this.overdueTasks = this.todaysData.overdueTasks;
