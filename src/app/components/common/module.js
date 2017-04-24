@@ -8,6 +8,7 @@ import {
     QuickTaskAddComponent,
     OverdueSectionComponent,
     DoneSectionComponent,
+    TaskSectionComponent,
     DatePickerTemplate
 } from '.';
 
@@ -21,7 +22,8 @@ new Registrater(ngModule)
         QuickTaskAddComponent,
         SearchInlineComponent,
         OverdueSectionComponent,
-        DoneSectionComponent
+        DoneSectionComponent,
+        TaskSectionComponent
     ]);
 
 export default ngModule.name;

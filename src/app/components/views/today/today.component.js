@@ -12,12 +12,7 @@ class Сontroller {
     }
     $onInit() {
         this.overdueTasks = this.todaysData.overdueTasks;
-    }
-
-    $onChanges(changes) {
-        if (changes.todaysData) {
-            // this.todaysData = Object.assign({}, this.todaysData);
-        }
+        this.todayTasks = this.todaysData.todayTasks;
     }
 
     hasOverdueTasks() {
@@ -28,6 +23,12 @@ class Сontroller {
         task
     }) {
         return this.todayService.updateOverdueTask(task);
+    }
+
+    onTodayTaskChanged({
+        task
+    }) {
+        return this.todayService.updateTodayTask(task);
     }
 }
 

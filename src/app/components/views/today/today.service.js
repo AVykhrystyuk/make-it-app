@@ -11,7 +11,8 @@ export class TodayService {
         this.$q = $q;
 
         this.todaysData = {
-            overdueTasks: this._getOverdueTasks()
+            overdueTasks: this._getOverdueTasks(),
+            todayTasks: this._getTodaysTasks()
         };
     }
 
@@ -38,18 +39,47 @@ export class TodayService {
         return deferred.promise;
     }
 
+    updateTodayTask(task) {
+        let deferred = this.$q.defer();
+
+        this.$timeout(() => {
+            let todayTask = this.todaysData.todayTasks.find(t => t.id === task.id);
+            if (todayTask) {
+                Object.assign(todayTask, task);
+            }
+
+            deferred.resolve(todayTask);
+        }, 1000);
+
+        return deferred.promise;
+    }
+
     _getOverdueTasks() {
         let overdueTasks = [{
             id: 1,
             date: this._offsetDay(new Date(), -2),
-            text: 'Task 1: < Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+            text: 'Overdue Task 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }, {
             id: 2,
             date: this._offsetDay(new Date(), -1),
-            text: 'Task 2: > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+            text: 'Overdue Task 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }];
 
         return overdueTasks;
+    }
+
+    _getTodaysTasks() {
+        let tasks = [{
+            id: 10,
+            date: new Date(),
+            text: 'Task 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+        }, {
+            id: 11,
+            date: new Date(),
+            text: 'Task 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+        }];
+
+        return tasks;
     }
 
     _offsetDay(date, offset) {

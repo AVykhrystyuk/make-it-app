@@ -3,15 +3,15 @@
 import template from './today-section.html';
 
 class Сontroller {
-    constructor() {
+    constructor(eventFactory) {
         'ngInject';
+        this.eventFactory = eventFactory;
     }
+
     $onInit() {}
-    
-    $onChanges(changes) {
-        if (changes.todaysData) {
-            // this.todaysData = Object.assign({}, this.todaysData);
-        }
+
+    onTodayTaskChanged(event) {
+        return this.onTaskChanged(this.eventFactory.create(event));
     }
 }
 
@@ -20,6 +20,7 @@ export const TodaySectionComponent = {
     template,
     controller: Сontroller,
     bindings: {
-        todaysData: '<'
-    },
+        tasks: '<',
+        onTaskChanged: '&'
+    }
 };
