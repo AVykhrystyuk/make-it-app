@@ -1,0 +1,4 @@
+<div ng-hide="$ctrl.isInCreateMode">
+    <span class="action" ng-click="$ctrl.runCreateMode()"><fa fw name="plus"></fa> Add task</span>
+</div>
+<task-item-editable ng-if="$ctrl.isInCreateMode" task="$ctrl.newTask" on-save-edit="$ctrl.onNewTaskEdited($event);" on-cancel-edit="$ctrl.onCancelCreateMode($event);"></task-item-editable>

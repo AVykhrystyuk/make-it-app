@@ -10,6 +10,7 @@ class Сontroller {
         this.todayService = todayService;
         this.date = new Date();
     }
+
     $onInit() {
         this.overdueTasks = this.todaysData.overdueTasks;
         this.todayTasks = this.todaysData.todayTasks;
@@ -29,6 +30,15 @@ class Сontroller {
         task
     }) {
         return this.todayService.updateTodayTask(task);
+    }
+
+    onTaskCreated({
+        task
+    }) {
+        return this.todayService.createNewTask(task)
+            .then(resultedTask => {
+                this.todayTasks.push(resultedTask);
+            });
     }
 }
 

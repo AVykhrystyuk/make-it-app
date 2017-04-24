@@ -9,6 +9,7 @@ import {
     OverdueSectionComponent,
     DoneSectionComponent,
     TaskSectionComponent,
+    AddNewTaskComponent,
     DatePickerTemplate
 } from '.';
 
@@ -23,7 +24,8 @@ new Registrater(ngModule)
         SearchInlineComponent,
         OverdueSectionComponent,
         DoneSectionComponent,
-        TaskSectionComponent
+        TaskSectionComponent,
+        AddNewTaskComponent
     ]);
 
 export default ngModule.name;

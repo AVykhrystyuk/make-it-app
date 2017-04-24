@@ -10,16 +10,23 @@ export class TodayService {
         this.$timeout = $timeout;
         this.$q = $q;
 
-        this.todaysData = {
+        this.todaysData = this._createNewTodaysData();
+    }
+
+    _createNewTodaysData() {
+        return {
             overdueTasks: this._getOverdueTasks(),
             todayTasks: this._getTodaysTasks()
-        };
+        }
     }
 
     getTodaysData() {
         let deferred = this.$q.defer();
 
-        this.$timeout(() => deferred.resolve(this.todaysData), 1000);
+        this.$timeout(() => {
+            let todaysData = this._createNewTodaysData();
+            deferred.resolve(todaysData);
+        }, 1000);
 
         return deferred.promise;
     }
@@ -49,6 +56,25 @@ export class TodayService {
             }
 
             deferred.resolve(todayTask);
+        }, 1000);
+
+        return deferred.promise;
+    }
+
+    createNewTask(task) {
+        let deferred = this.$q.defer();
+
+        this.$timeout(() => {
+            let todayTasks = this.todaysData.todayTasks;
+            let newId = 1;
+            if (todayTasks.length > 0) {
+                let lastTodayTask = todayTasks[todayTasks.length - 1];
+                newId = lastTodayTask.id + 1;
+            }
+            task.id = newId;
+            this.todaysData.todayTasks.push(task);
+
+            deferred.resolve(task);
         }, 1000);
 
         return deferred.promise;

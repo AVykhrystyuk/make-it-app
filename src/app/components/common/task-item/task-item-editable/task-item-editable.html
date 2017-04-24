@@ -5,7 +5,7 @@
     <form ng-submit="$ctrl.saveEdit()">
         <div class="editor-panel">
             <div class="richtext-editor-wrapper">
-                <div class="richtext-editor" placeholder="To be myself..." autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
+                <div class="richtext-editor" autocomplete="off" autocorrect="off" spellcheck="false" contenteditable="true" contenteditable-move-caret-to-end-on-change="true"
                     contenteditable-trim-text="true" auto-focus="{{$ctrl.editableTaskFocused}}" ng-model="$ctrl.editableTask.text" mi-enter-key-press="$ctrl.saveEdit()"
                     mi-esc-key-press="$ctrl.cancelEdit()"></div>
             </div>

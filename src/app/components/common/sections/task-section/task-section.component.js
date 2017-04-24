@@ -17,9 +17,15 @@ class Сontroller {
     }
 
     $onChanges(changes) {
-        this.taskViewModels = changes.tasks && this.tasks
-            ? this.tasks.map(t => this._createTaskViewModel(t))
-            : [];
+        if (changes.tasks) {
+            this._updateTaskViewModels();
+        }
+    }
+
+    $doCheck() {
+        if (this.tasks.length !== this.taskViewModels.length) {
+            this._updateTaskViewModels();
+        }
     }
 
     onTaskItemChanged(event) {
@@ -31,6 +37,12 @@ class Сontroller {
             .finally(() => {
                 this._toggleEditable(otherTaskViewModels, true);
             });
+    }
+
+    _updateTaskViewModels() {
+        this.taskViewModels = this.tasks
+            ? this.tasks.map(t => this._createTaskViewModel(t))
+            : [];
     }
 
     _createTaskViewModel(task) {

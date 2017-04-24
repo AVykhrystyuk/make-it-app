@@ -63,6 +63,7 @@ class Сontroller {
         }
 
         if (!this._isEditableTaskValid()) {
+            this.cancelEdit();
             return;
         }
 
