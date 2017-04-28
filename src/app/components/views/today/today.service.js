@@ -16,7 +16,8 @@ export class TodayService {
     _createNewTodaysData() {
         return {
             overdueTasks: this._getOverdueTasks(),
-            todayTasks: this._getTodaysTasks()
+            todayTasks: this._getTodaysTasks(),
+            doneTasks: this._getDoneTasks()
         }
     }
 
@@ -56,6 +57,21 @@ export class TodayService {
             }
 
             deferred.resolve(todayTask);
+        }, 1000);
+
+        return deferred.promise;
+    }
+
+    updateDoneTask(task) {
+        let deferred = this.$q.defer();
+
+        this.$timeout(() => {
+            let doneTask = this.todaysData.doneTasks.find(t => t.id === task.id);
+            if (doneTask) {
+                Object.assign(doneTask, task);
+            }
+
+            deferred.resolve(doneTask);
         }, 1000);
 
         return deferred.promise;
@@ -103,6 +119,20 @@ export class TodayService {
             id: 11,
             date: new Date(),
             text: 'Task 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+        }];
+
+        return tasks;
+    }
+
+    _getDoneTasks() {
+        let tasks = [{
+            id: 100,
+            date: new Date(),
+            text: 'Done Task 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
+        }, {
+            id: 101,
+            date: new Date(),
+            text: 'Done Task 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem vitae quisquam voluptatem commodi, nam, quod rerum nobis tenetur laborum omnis neque optio, ipsam eum, vel cumque unde molestias consectetur magnam.'
         }];
 
         return tasks;

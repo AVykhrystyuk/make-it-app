@@ -4,4 +4,4 @@
 <today-section tasks="$ctrl.todayTasks" on-task-changed="$ctrl.onTodayTaskChanged($event);"></today-section>
 <add-new-task default-date="$ctrl.date" on-new-task-created="$ctrl.onTaskCreated($event);"></add-new-task>
 
-<done-section style="margin-top: 20px;display: block;"></done-section>
+<done-section style="margin-top: 20px;display: block;" ng-show="$ctrl.hasDoneTasks()" tasks="$ctrl.doneTasks" on-task-changed="$ctrl.onDoneTaskChanged($event);"></done-section>

@@ -11,9 +11,8 @@ class Сontroller {
     }
 
     $onInit() {
-        if (this.header === undefined) {
-            this.header = "Task section";
-        }
+        this.header = this.header || "Task section";
+        this.tasks = this.tasks || [];
     }
 
     $onChanges(changes) {

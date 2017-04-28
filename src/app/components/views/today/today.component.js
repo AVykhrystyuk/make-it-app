@@ -12,12 +12,17 @@ class Сontroller {
     }
 
     $onInit() {
-        this.overdueTasks = this.todaysData.overdueTasks;
-        this.todayTasks = this.todaysData.todayTasks;
+        this.overdueTasks = this.todaysData.overdueTasks || [];
+        this.todayTasks = this.todaysData.todayTasks || [];
+        this.doneTasks = this.todaysData.doneTasks || [];
     }
 
     hasOverdueTasks() {
-        return this.overdueTasks && this.overdueTasks.length > 0;
+        return this.overdueTasks.length > 0;
+    }
+
+    hasDoneTasks() {
+        return this.doneTasks.length > 0;
     }
 
     onOverdueTaskChanged({
@@ -30,6 +35,12 @@ class Сontroller {
         task
     }) {
         return this.todayService.updateTodayTask(task);
+    }
+
+    onDoneTaskChanged({
+        task
+    }) {
+        return this.todayService.updateDoneTask(task);
     }
 
     onTaskCreated({
