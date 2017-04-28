@@ -48,7 +48,7 @@ class Сontroller {
     }) {
         return this.todayService.createNewTask(task)
             .then(resultedTask => {
-                this.todayTasks.push(resultedTask);
+                this.todayTaskViewModels.push(resultedTask);
             });
     }
 
