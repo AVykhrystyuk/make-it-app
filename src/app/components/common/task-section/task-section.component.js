@@ -1,6 +1,6 @@
 'use strict';
 
-import '../styles.less';
+import './task-section.less';
 import template from './task-section.html';
 
 class Сontroller {

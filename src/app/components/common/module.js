@@ -6,8 +6,6 @@ import Registrater from 'registrater';
 import {
     SearchInlineComponent,
     QuickTaskAddComponent,
-    OverdueSectionComponent,
-    DoneSectionComponent,
     TaskSectionComponent,
     AddNewTaskComponent,
     DatePickerTemplate
@@ -22,8 +20,6 @@ new Registrater(ngModule)
     .registerComponents([
         QuickTaskAddComponent,
         SearchInlineComponent,
-        OverdueSectionComponent,
-        DoneSectionComponent,
         TaskSectionComponent,
         AddNewTaskComponent
     ]);
