@@ -15,44 +15,19 @@ class Сontroller {
         this.tasks = this.tasks || [];
     }
 
-    $onChanges(changes) {
-        if (changes.tasks) {
-            this._updateTaskViewModels();
-        }
-    }
-
-    $doCheck() {
-        if (this.tasks.length !== this.taskViewModels.length) {
-            this._updateTaskViewModels();
-        }
-    }
-
     onTaskItemChanged(event) {
         let task = event.task;
-        let otherTaskViewModels = this.taskViewModels.filter(vm => vm.task.id !== task.id);
-        this._toggleEditable(otherTaskViewModels, false);
+        let otherTasks = this.tasks.filter(t => t.id !== task.id);
+        this._toggleEditable(otherTasks, false);
 
         return this.onTaskChanged(this.eventFactory.create(event))
             .finally(() => {
-                this._toggleEditable(otherTaskViewModels, true);
+                this._toggleEditable(otherTasks, true);
             });
     }
 
-    _updateTaskViewModels() {
-        this.taskViewModels = this.tasks
-            ? this.tasks.map(t => this._createTaskViewModel(t))
-            : [];
-    }
-
-    _createTaskViewModel(task) {
-        return {
-            task: task,
-            isEditable: true
-        };
-    }
-
-    _toggleEditable(taskViewModels, isEditable) {
-        taskViewModels.forEach(vm => vm.isEditable = isEditable);
+    _toggleEditable(tasks, isEditable) {
+        tasks.forEach(t => t.isEditable = isEditable);
     }
 }
 

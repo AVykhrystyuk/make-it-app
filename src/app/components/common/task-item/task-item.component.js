@@ -18,6 +18,10 @@ class Сontroller {
         if (this.isEditable === undefined) {
             this.isEditable = true;
         }
+
+        if (this.checked === undefined) {
+            this.checked = false;
+        }
     }
 
     onBeginEdit() {

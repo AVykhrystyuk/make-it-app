@@ -19,12 +19,6 @@ class Сontroller {
         }
     }
 
-    $onChanges(changes) {
-        if (changes.task) {
-            this.task = Object.assign({}, this.task);
-        }
-    }
-
     beginEdit() {
         if (!this.isEditable) {
             return;

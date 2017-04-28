@@ -1,7 +1,7 @@
 <h1 class="view-header">Today<small>{{$ctrl.date | date : 'EEEE d MMMM'}}</small></h1>
-<overdue-section ng-show="$ctrl.hasOverdueTasks()" tasks="$ctrl.overdueTasks" on-task-changed="$ctrl.onOverdueTaskChanged($event);"></overdue-section>
+<overdue-section ng-show="$ctrl.hasOverdueTasks()" tasks="$ctrl.overdueTaskViewModels" on-task-changed="$ctrl.onOverdueTaskChanged($event);"></overdue-section>
 
-<today-section tasks="$ctrl.todayTasks" on-task-changed="$ctrl.onTodayTaskChanged($event);"></today-section>
+<today-section tasks="$ctrl.todayTaskViewModels" on-task-changed="$ctrl.onTodayTaskChanged($event);"></today-section>
 <add-new-task default-date="$ctrl.date" on-new-task-created="$ctrl.onTaskCreated($event);"></add-new-task>
 
-<done-section style="margin-top: 20px;display: block;" ng-show="$ctrl.hasDoneTasks()" tasks="$ctrl.doneTasks" on-task-changed="$ctrl.onDoneTaskChanged($event);"></done-section>
+<done-section style="margin-top: 20px;display: block;" ng-show="$ctrl.hasDoneTasks()" tasks="$ctrl.doneTaskViewModels" on-task-changed="$ctrl.onDoneTaskChanged($event);"></done-section>

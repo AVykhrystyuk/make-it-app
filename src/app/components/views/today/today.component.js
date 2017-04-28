@@ -12,17 +12,17 @@ class Сontroller {
     }
 
     $onInit() {
-        this.overdueTasks = this.todaysData.overdueTasks || [];
-        this.todayTasks = this.todaysData.todayTasks || [];
-        this.doneTasks = this.todaysData.doneTasks || [];
+        this.overdueTaskViewModels = this.todaysData.overdueTasks.map(t => this._createTaskViewModel(t)) || [];
+        this.todayTaskViewModels = this.todaysData.todayTasks.map(t => this._createTaskViewModel(t)) || [];
+        this.doneTaskViewModels = this.todaysData.doneTasks.map(t => this._createDoneTaskViewModel(t)) || [];
     }
 
     hasOverdueTasks() {
-        return this.overdueTasks.length > 0;
+        return this.overdueTaskViewModels.length > 0;
     }
 
     hasDoneTasks() {
-        return this.doneTasks.length > 0;
+        return this.doneTaskViewModels.length > 0;
     }
 
     onOverdueTaskChanged({
@@ -50,6 +50,21 @@ class Сontroller {
             .then(resultedTask => {
                 this.todayTasks.push(resultedTask);
             });
+    }
+
+    _createTaskViewModel(task) {
+        return {
+            id: task.id,
+            text: task.text,
+            date: task.date,
+            isEditable: true
+        }
+    }
+
+    _createDoneTaskViewModel(task) {
+        let taskViewModel = this._createTaskViewModel(task);
+        taskViewModel.checked = true;
+        return taskViewModel;
     }
 }
 
