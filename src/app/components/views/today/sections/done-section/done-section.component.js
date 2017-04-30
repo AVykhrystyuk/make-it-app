@@ -1,6 +1,5 @@
 'use strict';
 
-import '../styles.less';
 import template from './done-section.html';
 
 class Сontroller {
