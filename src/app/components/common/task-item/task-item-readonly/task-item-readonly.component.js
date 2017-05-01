@@ -4,10 +4,11 @@ import './task-item-readonly.less';
 import template from './task-item-readonly.html';
 
 class Сontroller {
-    constructor(eventFactory, tooltipTriggerService) {
+    constructor(eventFactory, tooltipTriggerService, taskItemOptionsFactory) {
         'ngInject';
         this.eventFactory = eventFactory;
         this.tooltipTriggerService = tooltipTriggerService;
+        this.taskItemOptionsFactory = taskItemOptionsFactory;
 
         this.isEditing = false;
         this.tooltipTrigger = this.tooltipTriggerService.getTrigger();
@@ -17,6 +18,8 @@ class Сontroller {
         if (this.isEditable === undefined) {
             this.isEditable = true;
         }
+
+        this.options = this.options || this.taskItemOptionsFactory.createReadonlyDefaultOptions();
     }
 
     beginEdit() {
@@ -33,6 +36,7 @@ export const TaskItemReadonlyComponent = {
     template,
     controller: Сontroller,
     bindings: {
+        options: '<',
         task: '<',
         isEditable: '<',
         onBeginEdit: '&'

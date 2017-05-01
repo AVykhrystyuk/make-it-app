@@ -5,11 +5,12 @@ import template from './task-item.html';
 import eventNames from './task-item.events.js';
 
 class Сontroller {
-    constructor($rootScope, eventFactory, hostInfo) {
+    constructor($rootScope, eventFactory, hostInfo, taskItemOptionsFactory) {
         'ngInject';
         this.$rootScope = $rootScope;
         this.eventFactory = eventFactory;
         this.hostInfo = hostInfo;
+        this.taskItemOptionsFactory = taskItemOptionsFactory;
 
         this.isEditing = false;
     }
@@ -22,6 +23,8 @@ class Сontroller {
         if (this.checked === undefined) {
             this.checked = false;
         }
+
+        this.options = this.options || this.taskItemOptionsFactory.createDefaultOptions();
     }
 
     onBeginEdit() {
@@ -65,6 +68,7 @@ export const TaskItemComponent = {
     template,
     controller: Сontroller,
     bindings: {
+        options: '<',
         task: '<',
         isEditable: '<',
         onTaskChanged: '&'

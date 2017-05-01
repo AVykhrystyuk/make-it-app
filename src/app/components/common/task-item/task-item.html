@@ -1,2 +1,2 @@
-<task-item-readonly ng-if="!$ctrl.isEditing" task="$ctrl.task" is-editable="$ctrl.isEditable" on-begin-edit="$ctrl.onBeginEdit($event);"></task-item-readonly>
+<task-item-readonly ng-if="!$ctrl.isEditing" task="$ctrl.task" is-editable="$ctrl.isEditable" on-begin-edit="$ctrl.onBeginEdit($event);" options="$ctrl.options.readonly"></task-item-readonly>
 <task-item-editable ng-if="$ctrl.isEditing" task="$ctrl.task" on-save-edit="$ctrl.onSaveEdit($event);" on-cancel-edit="$ctrl.onCancelEdit($event);"></task-item-editable>

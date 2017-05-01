@@ -3,7 +3,7 @@
         <h4 class="sub-section-header warning">{{$ctrl.header}}</h4>
         <ul class="task-list">
             <li ng-repeat="task in $ctrl.tasks">
-                <task-item task="task" on-task-changed="$ctrl.onTaskItemChanged($event);" is-editable="task.isEditable"></task-item>
+                <task-item task="task" on-task-changed="$ctrl.onTaskItemChanged($event);" is-editable="task.isEditable" options="$ctrl.options"></task-item>
             </li>
         </ul>
     </div>

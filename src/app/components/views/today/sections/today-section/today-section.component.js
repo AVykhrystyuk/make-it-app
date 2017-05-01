@@ -3,9 +3,13 @@
 import template from './today-section.html';
 
 class Сontroller {
-    constructor(eventFactory) {
+    constructor(eventFactory, taskItemOptionsFactory) {
         'ngInject';
         this.eventFactory = eventFactory;
+        this.taskItemOptionsFactory = taskItemOptionsFactory;
+        
+        this.taskSectionOptions = this.taskItemOptionsFactory.createDefaultOptions();
+        this.taskSectionOptions.readonly.hideDate = true;
     }
 
     $onInit() {}

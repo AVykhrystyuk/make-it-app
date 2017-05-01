@@ -37,6 +37,7 @@ export const TaskSectionComponent = {
     controller: Сontroller,
     bindings: {
         header: '<',
+        options: '<',
         tasks: '<',
         onTaskChanged: '&'
     }
