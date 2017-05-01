@@ -11,7 +11,7 @@
             </div>
             <div class="date-container" tooltip-trigger="'{{$ctrl.tooltipTrigger}}'" tooltip-placement="top-left" uib-tooltip="Choose date" ng-click="$ctrl.toggleDatepickerVisibility()">
                 <div class="date">
-                    <span>{{ $ctrl.editableTask.date | date : 'd MMM'}}</span>
+                    <span>{{ $ctrl.editableTask.date | dateFormatter}}</span>
                 </div>
                 <input type="text" tabindex="-1" readonly class="datepicker-popup-hidden" datepicker-append-to-body="true" uib-datepicker-popup ng-model="$ctrl.editableTask.date"
                     ng-change="$ctrl.onSelectedDateChanged()" is-open="$ctrl.datepickerPopup.opened" popup-placement="bottom-right" datepicker-options="$ctrl.datepickerPopup.options"
