@@ -4,8 +4,8 @@
   "description": "MakeIt app offers useful and user-friendly features to organize your tasks and optimize your productivity.",
   "scripts": {
     "start": "npm run dev-server",
-    "dev-server": "webpack-dev-server --progress --inline --config ./config/webpack.config.js",
-    "dev-server-prod": "webpack-dev-server --env.production --progress --inline --config ./config/webpack.config.js",
+    "dev-server": "webpack-dev-server --progress --config ./config/webpack.config.js",
+    "dev-server-prod": "webpack-dev-server --env.production --progress --config ./config/webpack.config.js",
     "build": "rimraf build && webpack --progress --display-modules --config ./config/webpack.config.js",
     "build-prod": "rimraf build && webpack --env.production --display-modules --config ./config/webpack.config.js",
     "lint": "eslint .",
